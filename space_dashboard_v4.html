@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>商业航天投资仪表盘 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#191817; --n80:#2d2b29; --n60:#4a4744; --n40:#7a7773; --n20:#b0ada8; --n10:#d0cdc8; --n05:#e8e5e0; --n02:#f2efe9;
+  --bg:#f3f1ec; --bg2:#eae8e2; --card:#ffffff;
+  --gold:#b5813a; --gold2:#d4a052; --goldA:rgba(181,129,58,.09); --goldB:rgba(181,129,58,.18);
+  --pos:#2e6844; --posA:rgba(46,104,68,.09); --neg:#8c2222; --negA:rgba(140,34,34,.08);
+  --dark:#1c2d3f; --darkB:#162538;
+  --sb-w:200px;
+  --serif:"DM Serif Display","Noto Serif SC",serif;
+  --sans:"Outfit","Noto Sans SC",sans-serif;
+  /* compat aliases */
+  --fd:var(--serif); --fb:var(--sans);
+  --paper:var(--bg); --warm:var(--bg2);
+  --i60:var(--n60); --i40:var(--n40); --i20:var(--n20); --i10:var(--n10); --i05:var(--n05);
+  --gold-lt:var(--gold2); --gold-bg:var(--goldA);
+  --grn:var(--pos); --grn-lt:#3a8255; --grn-bg:var(--posA);
+  --red:var(--neg); --red-bg:var(--negA);
+  --navy:var(--dark); --navy-lt:#3a5878; --navy-bg:rgba(28,45,63,.07);
+  --teal:var(--dark); --teal-bg:rgba(28,45,63,.07);
+  --pur:var(--dark); --pur-bg:rgba(28,45,63,.07);
+  --oran:var(--gold); --oran-bg:var(--goldA);
+  --sw:var(--sb-w);
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased}
+#tt{position:fixed;background:var(--ink);color:rgba(255,255,255,.88);font-size:11.5px;padding:8px 12px;border-radius:4px;pointer-events:none;white-space:normal;max-width:260px;z-index:9999;opacity:0;transition:opacity .15s;line-height:1.65}
+/* ── SIDEBAR: clean white ── */
+#sb{position:fixed;left:0;top:0;bottom:0;width:var(--sb-w);background:#fff;border-right:1.5px solid var(--n05);z-index:200;display:flex;flex-direction:column;padding:22px 0 14px;overflow-y:auto;scrollbar-width:none}
+#sb::-webkit-scrollbar{display:none}
+.sbb{padding:0 18px 16px;border-bottom:1px solid var(--n05);margin-bottom:6px}
+.sey{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:700}
+.stit{font-family:var(--serif);font-size:14.5px;color:var(--ink);line-height:1.25}
+.sdt{margin-top:4px;font-size:9px;color:var(--n20);letter-spacing:.3px}
+.snb{padding:0 8px;margin-bottom:1px}
+.snl{font-size:7px;letter-spacing:2.5px;text-transform:uppercase;color:var(--n10);padding:0 10px;margin:12px 0 3px;font-weight:600}
+.sna{position:relative;display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:3px;color:var(--n40);font-size:11px;font-weight:400;transition:all .12s;cursor:pointer;border:none;background:none;width:100%;text-align:left;line-height:1.3}
+.sna:hover{color:var(--ink);background:var(--n02)}
+.sna.on{color:var(--gold);background:var(--goldA);font-weight:600}
+.sna.on::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:2px;height:16px;background:var(--gold);border-radius:0 1px 1px 0}
+.snn{font-size:8px;color:var(--n10);min-width:18px;flex-shrink:0;font-weight:500}
+.sna.on .snn{color:var(--gold);opacity:.7}
+.sft{padding:12px 18px 0;border-top:1px solid var(--n05);font-size:8.5px;color:var(--n20);line-height:1.9;margin-top:auto}
+/* ── MAIN ── */
+#mn{margin-left:var(--sb-w)}
+.sl{height:100vh;padding:22px 40px 18px;border-bottom:1px solid rgba(0,0,0,.05);position:relative;display:flex;flex-direction:column;overflow:hidden}
+.alt{background:var(--bg2)}
+.dk{background:var(--dark);color:#fff}
+.dk2{background:var(--darkB);color:#fff}
+/* ── SLIDE HEADER ── */
+.slhd{display:flex;align-items:baseline;gap:16px;margin-bottom:10px;flex-shrink:0}
+.ey{font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.ey::before{content:"";display:block;width:20px;height:1px;background:var(--gold);flex-shrink:0}
+.sh{font-family:var(--serif);font-size:clamp(20px,2vw,28px);line-height:1.05;color:var(--ink);font-weight:400;flex:1}
+.sh i{font-style:italic;color:var(--n40)}
+.dk .sh,.dk2 .sh{color:#fff}
+.dk .sh i,.dk2 .sh i{color:rgba(255,255,255,.5)}
+.dk .ey,.dk2 .ey{color:var(--gold2)}
+.dk .ey::before,.dk2 .ey::before{background:var(--gold2)}
+.pgn{font-size:10px;color:var(--n20);white-space:nowrap;margin-left:auto}
+.dk .pgn,.dk2 .pgn{color:rgba(255,255,255,.2)}
+.divl{width:100%;height:1px;background:var(--n05);margin-bottom:10px;flex-shrink:0}
+.dk .divl,.dk2 .divl{background:rgba(255,255,255,.1)}
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.g23{display:grid;grid-template-columns:2fr 3fr;gap:10px}
+.g25{display:grid;grid-template-columns:2fr 5fr;gap:10px}
+/* ── KPI BOX ── */
+.kbox{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:14px 16px}
+.kv{font-family:var(--serif);font-size:28px;color:#fff;line-height:1;margin-bottom:3px;letter-spacing:-.5px}
+.kv em{font-style:normal;color:var(--gold2)}
+.kl{font-size:10.5px;color:rgba(255,255,255,.45);line-height:1.5}
+/* ── STAT BOX ── */
+.sbox{background:var(--card);border:1px solid var(--n05);border-radius:3px;padding:11px 14px}
+.alt .sbox{background:rgba(255,255,255,.75)}
+.dk .sbox,.dk2 .sbox{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.09)}
+.sv{font-family:var(--serif);font-size:22px;color:var(--ink);line-height:1;margin-bottom:3px}
+.sv em{font-style:normal;color:var(--gold)}
+.dk .sv,.dk2 .sv{color:#fff}
+.sl2{font-size:11px;color:var(--n60);line-height:1.45}
+.sd2{font-size:10.5px;color:var(--pos);margin-top:2px;font-weight:600}
+/* ── LABELS ── */
+.slbl{font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--n40);margin-bottom:5px;font-weight:600;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.slbl::before{content:"";display:block;width:18px;height:1px;background:var(--gold);flex-shrink:0}
+.dk .slbl,.dk2 .slbl{color:rgba(255,255,255,.45)}
+/* ── SOURCE CHIP ── */
+.src{display:inline-flex;align-items:center;gap:2px;font-size:9px;color:var(--n20);cursor:help;border-bottom:1px dotted var(--n10);padding:0 1px;margin-left:3px}
+.dk .src,.dk2 .src{color:rgba(255,255,255,.28);border-bottom-color:rgba(255,255,255,.15)}
+.src::before{content:"↗";font-size:8px;opacity:.6}
+/* ── PILLS — 3 types ── */
+.pill{display:inline-block;font-size:9.5px;padding:2px 8px;border-radius:2px;font-weight:600;white-space:nowrap}
+.pa,.pp,.pt{background:var(--n05);color:var(--n60)}
+.pb,.po{background:var(--goldA);color:var(--gold)}
+.pc{background:var(--posA);color:var(--pos)}
+.pd{background:rgba(0,0,0,.05);color:var(--n40)}
+.pe{background:var(--negA);color:var(--neg)}
+/* ── TIER BADGES ── */
+.tier{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:700;border:1px solid currentColor}
+.t1{color:var(--gold)}
+.t2{color:var(--n40)}
+.t3{color:var(--n20)}
+/* ── TABLE ── */
+.dt{width:100%;border-collapse:collapse;font-size:11.5px}
+.dt thead tr{border-bottom:1.5px solid var(--ink)}
+.dt thead th{text-align:left;padding:6px 8px 6px 0;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--n40);font-weight:700}
+.dt tbody tr{border-bottom:1px solid var(--n05);transition:background .1s}
+.dt tbody tr:hover{background:var(--goldA)}
+.dt td{padding:7px 8px 7px 0;color:var(--n60);vertical-align:middle;line-height:1.45}
+.dt td:first-child{color:var(--ink);font-weight:600}
+.dt .num{font-family:var(--serif);font-size:14px;color:var(--ink)}
+.dk .dt thead tr,.dk2 .dt thead tr{border-bottom-color:rgba(255,255,255,.25)}
+.dk .dt thead th,.dk2 .dt thead th{color:rgba(255,255,255,.4)}
+.dk .dt tbody tr,.dk2 .dt tbody tr{border-bottom-color:rgba(255,255,255,.07)}
+.dk .dt td,.dk2 .dt td{color:rgba(255,255,255,.55)}
+.dk .dt td:first-child,.dk2 .dt td:first-child{color:#fff}
+/* ── INSIGHT BOX ── */
+.ibox{background:var(--card);border:1px solid var(--n05);border-radius:3px;padding:11px 14px}
+.alt .ibox{background:rgba(255,255,255,.8)}
+.dk .ibox,.dk2 .ibox{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.09)}
+.it{font-size:11.5px;font-weight:700;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:6px;line-height:1.3}
+.it::before{content:"";display:block;width:2px;height:13px;background:var(--gold);flex-shrink:0;border-radius:1px}
+.dk .it,.dk2 .it{color:#fff}
+.ib{font-size:11px;color:var(--n60);line-height:1.7}
+.dk .ib,.dk2 .ib{color:rgba(255,255,255,.5)}
+/* ── PROGRESS BAR ── */
+.pbar{display:flex;align-items:center;gap:7px;margin-top:4px}
+.pbar-track{flex:1;height:5px;background:var(--n05);border-radius:3px;overflow:hidden;min-width:40px}
+.pbar-fill{height:100%;border-radius:3px}
+.pbar-val{font-size:10.5px;font-weight:700;white-space:nowrap;min-width:44px;text-align:right;color:var(--n60)}
+.dk .pbar-track,.dk2 .pbar-track{background:rgba(255,255,255,.1)}
+/* ── CHAIN BAR ── */
+.chain{display:flex;gap:2px;height:32px;border-radius:3px;overflow:hidden;flex-shrink:0}
+.chain-seg{display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;color:#fff;cursor:help;transition:opacity .15s;white-space:nowrap}
+.chain-seg:hover{opacity:.82}
+/* ── PAGE FOOTER ── */
+.pft{position:absolute;bottom:8px;left:40px;right:40px;display:flex;justify-content:space-between;font-size:9px;color:var(--n10);border-top:1px solid var(--n05);padding-top:5px}
+.dk .pft,.dk2 .pft{color:rgba(255,255,255,.18);border-top-color:rgba(255,255,255,.08)}
+/* ── COMPANY CARD ── */
+.cocard{border:1px solid var(--n05);border-radius:3px;padding:10px 12px;background:var(--card);display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.alt .cocard{background:rgba(255,255,255,.8)}
+.cocard:hover{border-color:var(--gold)}
+.coname{font-family:var(--serif);font-size:16px;color:var(--ink);line-height:1;display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:2px}
+.cor{display:flex;gap:6px;align-items:baseline;font-size:10.5px;padding:2.5px 0;border-bottom:1px solid var(--n05)}
+.cor:last-child{border-bottom:none}
+.corl{min-width:52px;color:var(--n20);font-size:10px;flex-shrink:0}
+.corv{color:var(--n60);line-height:1.45;font-size:11px}
+.corv.hi{color:var(--ink);font-weight:600}
+/* ── TECH CARD ── */
+.tcard{border:1px solid var(--n05);border-radius:3px;padding:12px 14px;background:var(--card);height:100%;display:flex;flex-direction:column;gap:7px}
+.alt .tcard{background:rgba(255,255,255,.8)}
+.dk .tcard,.dk2 .tcard{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.tcn{font-size:13px;font-weight:700;color:var(--ink);line-height:1.2}
+.dk .tcn,.dk2 .tcn{color:#fff}
+.tcsub{font-size:9.5px;color:var(--n40);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
+.tcb{font-size:11px;color:var(--n60);line-height:1.7;flex:1}
+.dk .tcb,.dk2 .tcb{color:rgba(255,255,255,.5)}
+/* ── COVER DECO ── */
+.cvbig{position:absolute;right:-20px;top:-40px;font-family:var(--serif);font-size:28vw;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none}
+.cvline{position:absolute;left:40px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(181,129,58,.2) 25%,rgba(181,129,58,.2) 75%,transparent)}
+.sdots{display:flex;gap:3px}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--n05)}
+.sdot.on{background:var(--gold)}
+.dk .sdot,.dk2 .sdot{background:rgba(255,255,255,.12)}
+</style>
+</head>
+<body>
+<div id="tt"></div>
+
+<!-- SIDEBAR -->
+<nav id="sb">
+  <div class="sbb">
+    <div class="sey">Research · 2026</div>
+    <div class="stit">商业航天<br>投资仪表盘</div>
+    <div class="sdt">截至 2026 年初</div>
+  </div>
+  <div class="snb">
+    <div class="snl">总览</div>
+    <button class="sna on" onclick="G('s00')"><span class="snn">00</span>封面</button>
+    <button class="sna" onclick="G('s01')"><span class="snn">01</span>市场概览</button>
+  </div>
+  <div class="snb">
+    <div class="snl">产业结构</div>
+    <button class="sna" onclick="G('s02')"><span class="snn">02</span>利润池深度分析</button>
+    <button class="sna" onclick="G('s03')"><span class="snn">03</span>单次发射经济学</button>
+    <button class="sna" onclick="G('s04')"><span class="snn">04</span>发射成本对比</button>
+  </div>
+  <div class="snb">
+    <div class="snl">竞争格局</div>
+    <button class="sna" onclick="G('s05')"><span class="snn">05</span>全球格局</button>
+    <button class="sna" onclick="G('s06')"><span class="snn">06</span>中国玩家全景图</button>
+    <button class="sna" onclick="G('s07')"><span class="snn">07</span>梯队 I · 领跑者</button>
+    <button class="sna" onclick="G('s08')"><span class="snn">08</span>梯队 II · 追赶者</button>
+    <button class="sna" onclick="G('s09')"><span class="snn">09</span>梯队 III · 新兴者</button>
+  </div>
+  <div class="snb">
+    <div class="snl">技术路线</div>
+    <button class="sna" onclick="G('s10')"><span class="snn">10</span>推进系统基础</button>
+    <button class="sna" onclick="G('s11')"><span class="snn">11</span>回收与复用原理</button>
+    <button class="sna" onclick="G('s12')"><span class="snn">12</span>技术路线矩阵</button>
+  </div>
+  <div class="snb">
+    <div class="snl">资本与展望</div>
+    <button class="sna" onclick="G('s13')"><span class="snn">13</span>资本市场 &amp; IPO</button>
+    <button class="sna" onclick="G('s14')"><span class="snn">14</span>政策时间线</button>
+    <button class="sna" onclick="G('s15')"><span class="snn">15</span>未来10年展望</button>
+  </div>
+  <div class="sft">数据来源<br>国家航天局 · 36氪<br>艾媒咨询 · 华泰证券<br>Euroconsult · ITU</div>
+</nav>
+
+<div id="mn">
+
+<!-- ══ S00 COVER ══ -->
+<section class="sl dk" id="s00" style="justify-content:flex-end;padding-bottom:28px">
+  <div class="cvline"></div>
+  <div class="cvbig">航天</div>
+  <div style="position:absolute;top:22px;left:40px;font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);font-weight:600">Investment Dashboard · 2026</div>
+  <div class="g4" style="margin-bottom:24px">
+    <div class="kbox" data-tip="全产业链口径（卫星制造+发射服务+地面设备+卫星应用），来源：Euroconsult《World Space Report 2025》"><div class="kv">$7,000<span style="font-size:15px">亿</span></div><div class="kl">全球市场规模（2025）<br><div class="src" style="margin-top:4px">Euroconsult 2025</div></div></div>
+    <div class="kbox" data-tip="含卫星制造、发射、地面站、北斗应用（5758亿单独核算已包含），来源：国家航天局商业航天白皮书2025"><div class="kv">2.5<span style="font-size:15px">万亿</span></div><div class="kl">中国市场规模（2025）<br><div class="src" style="margin-top:4px">商业航天白皮书</div></div></div>
+    <div class="kbox" data-tip="来源：SpaceX 2024年官方报价，猎鹰9可复用版本，LEO 22.8吨，发射价格$6,700万美元，折合$2,938/kg，复用补贴后约$2,700/kg"><div class="kv">$2.7K</div><div class="kl">SpaceX发射成本/kg LEO<br><div class="src" style="margin-top:4px">SpaceX Pricing 2024</div></div></div>
+    <div class="kbox" data-tip="来源：SpaceX 2025年12月最新员工股回购隐含估值（Bloomberg），为一级市场估值，上市时可能调整"><div class="kv">$1.5T</div><div class="kl">SpaceX计划IPO估值<br><div class="src" style="margin-top:4px">Bloomberg 2025.12</div></div></div>
+  </div>
+  <div style="font-family:var(--fd);font-size:clamp(44px,6.5vw,82px);line-height:1.0;color:#fff;margin-bottom:10px">商业航天<br><em style="font-style:italic;color:var(--gold2)">投资仪表盘</em></div>
+  <div style="font-size:12.5px;color:rgba(255,255,255,.5);max-width:560px;line-height:1.8;font-weight:300">覆盖全球商业航天产业结构，深度拆解利润池与发射经济学；梳理中国20+家火箭企业一二三梯队；系统解读推进技术与回收原理；追踪资本市场与IPO进程。悬停数据可查看计算口径与数据来源。</div>
+  <div class="pft"><span>Commercial Space Investment Dashboard 2026</span><span>00 / 15</span></div>
+</section>
+
+<!-- ══ S01 MARKET ══ -->
+<section class="sl alt" id="s01">
+  <div class="slhd"><div class="ey">01 · Market</div><div class="sh">市场概览 — <i>为什么是现在？</i></div><div class="pgn">01 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g4" style="margin-bottom:9px;flex-shrink:0">
+    <div class="sbox"><div class="sv"><em>$7,000</em><span style="font-size:12px">亿</span></div><div class="sl2">全球市场 2025</div><div class="sd2">→ 2030E：$18,000亿</div><div class="src" data-tip="Euroconsult《World Space Report 2025》，全产业链口径（制造+发射+地面+应用），不含军事航天">Euroconsult 2025</div></div>
+    <div class="sbox"><div class="sv"><em>2.5</em><span style="font-size:12px">万亿</span></div><div class="sl2">中国市场 2025（元）</div><div class="sd2">→ 2030E：≥5万亿</div><div class="src" data-tip="国家航天局商业航天白皮书2025，全口径，含北斗应用产业5758亿">商业航天白皮书</div></div>
+    <div class="sbox"><div class="sv"><em>268</em><span style="font-size:12px">亿</span></div><div class="sl2">2026年GW+千帆发射需求</div><div class="sd2">同比+49%</div><div class="src" data-tip="华泰证券《商业航天行业深度》2025.11，基于GW年度发射批次×单次报价估算">华泰证券 2025.11</div></div>
+    <div class="sbox"><div class="sv"><em>324</em><span style="font-size:12px">次</span></div><div class="sl2">2025年全球发射总次数</div><div class="sd2">中美合计占88%</div><div class="src" data-tip="SpaceFlight Now 2025年发射记录，中国92次，美国193次，合计285次/324次=88%">SpaceFlight Now</div></div>
+  </div>
+  <div class="g2" style="flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">全球市场规模曲线（亿美元）</div>
+      <div style="flex:1;background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px 14px">
+        <svg viewBox="0 0 400 170" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--dark)" stop-opacity=".15"/><stop offset="100%" stop-color="var(--dark)" stop-opacity="0"/></linearGradient>
+            <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--gold)" stop-opacity=".12"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></linearGradient>
+          </defs>
+          <!-- Grid lines -->
+          <line x1="48" y1="10" x2="48" y2="140" stroke="#e0e0dc" stroke-width=".8"/>
+          <line x1="48" y1="140" x2="395" y2="140" stroke="#e0e0dc" stroke-width=".8"/>
+          <line x1="48" y1="105" x2="395" y2="105" stroke="#ebebea" stroke-width=".8" stroke-dasharray="4,3"/>
+          <line x1="48" y1="70" x2="395" y2="70" stroke="#ebebea" stroke-width=".8" stroke-dasharray="4,3"/>
+          <line x1="48" y1="35" x2="395" y2="35" stroke="#ebebea" stroke-width=".8" stroke-dasharray="4,3"/>
+          <!-- Y labels -->
+          <text x="43" y="143" text-anchor="end" font-size="9.5" fill="var(--n20)" font-family="Outfit,sans-serif">0</text>
+          <text x="43" y="108" text-anchor="end" font-size="9.5" fill="var(--n20)" font-family="Outfit,sans-serif">5K</text>
+          <text x="43" y="73" text-anchor="end" font-size="9.5" fill="var(--n20)" font-family="Outfit,sans-serif">10K</text>
+          <text x="43" y="38" text-anchor="end" font-size="9.5" fill="var(--n20)" font-family="Outfit,sans-serif">15K</text>
+          <!-- Global area (x: 2019=48,2021=113,2023=178,2025=243,2027=308,2030=395) -->
+          <!-- y = 140 - val/18500*130; 2100→125.2, 2800→120.3, 5000→104.9, 7000→91.0, 9800→71.2, 18000→14 -->
+          <polygon points="48,125 113,120 178,105 243,91 308,71 395,14 395,140 48,140" fill="url(#ga)"/>
+          <polyline points="48,125 113,120 178,105 243,91 308,71 395,14" fill="none" stroke="var(--dark)" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- China (CNY/10 as proxy, 800→136, 1200→132, 1800→127, 2500→122, 3500→115, 6000→98) -->
+          <polygon points="48,136 113,132 178,127 243,122 308,115 395,98 395,140 48,140" fill="url(#gb)"/>
+          <polyline points="48,136 113,132 178,127 243,122 308,115 395,98" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6,3"/>
+          <!-- NOW line -->
+          <line x1="243" y1="10" x2="243" y2="140" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4,3" opacity=".6"/>
+          <text x="247" y="20" font-size="9.5" fill="var(--gold)" font-weight="700" font-family="Outfit,sans-serif">NOW</text>
+          <!-- Dots -->
+          <circle cx="243" cy="91" r="4" fill="var(--dark)" class="tip" data-tip="全球市场 2025E：$7,000亿（Euroconsult全产业链口径）"/>
+          <circle cx="395" cy="14" r="4" fill="var(--dark)" class="tip" data-tip="全球市场 2030E：$18,000亿（Euroconsult中值，高值$22,000亿）"/>
+          <circle cx="243" cy="122" r="4" fill="var(--gold)" class="tip" data-tip="中国市场 2025E：约2.5万亿元（商业航天白皮书2025全口径）"/>
+          <circle cx="395" cy="98" r="4" fill="var(--gold)" class="tip" data-tip="中国市场 2030E：约6万亿元（工信部规划目标）"/>
+          <!-- X labels -->
+          <text x="48" y="155" text-anchor="middle" font-size="9.5" fill="var(--n20)" font-family="Outfit">2019</text>
+          <text x="113" y="155" text-anchor="middle" font-size="9.5" fill="var(--n20)" font-family="Outfit">2021</text>
+          <text x="178" y="155" text-anchor="middle" font-size="9.5" fill="var(--n20)" font-family="Outfit">2023</text>
+          <text x="243" y="155" text-anchor="middle" font-size="9.5" fill="var(--gold)" font-weight="700" font-family="Outfit">2025</text>
+          <text x="308" y="155" text-anchor="middle" font-size="9.5" fill="var(--n20)" font-family="Outfit">2027E</text>
+          <text x="395" y="155" text-anchor="middle" font-size="9.5" fill="var(--n20)" font-family="Outfit">2030E</text>
+          <!-- Legend -->
+          <line x1="50" y1="166" x2="68" y2="166" stroke="var(--dark)" stroke-width="2.5"/>
+          <text x="72" y="169" font-size="9.5" fill="var(--n60)" font-family="Outfit">全球市场（亿美元）</text>
+          <line x1="200" y1="166" x2="218" y2="166" stroke="var(--gold)" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="222" y="169" font-size="9.5" fill="var(--n60)" font-family="Outfit">中国市场（亿元/10）</text>
+        </svg>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">三大结构性驱动力</div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex:1">
+        <div class="ibox" style="flex:1">
+          <div class="it">🛰 卫星互联网组网——需求锁死</div>
+          <div class="ib">GW星座（中国版Starlink）计划1.2万颗 + 千帆（上海）1.08万颗，合计逾1.8万颗。ITU"先到先得"频轨规则下，发射需求被战略强制锁定。2026年发射市场达268亿元（+49%），未来5年累计发射市场预计超2000亿元。</div>
+          <div class="pbar" style="margin-top:5px"><div class="pbar-track"><div class="pbar-fill" style="width:75%;background:var(--pos)"></div></div><span class="pbar-val" style="color:var(--pos)">驱动权重 75%</span></div>
+        </div>
+        <div class="ibox" style="flex:1">
+          <div class="it">📡 遥感 &amp; 卫星数据服务——已验证商业闭环</div>
+          <div class="ib">吉林一号138颗实现任意点10分钟重访；北斗应用产业链产值5758亿元（2024）。遥感数据下游（农业、灾害、城市规划、保险）形成独立商业正循环，无需星座组网即可盈利，是当前最快路径。</div>
+          <div class="pbar" style="margin-top:5px"><div class="pbar-track"><div class="pbar-fill" style="width:50%;background:var(--n40)"></div></div><span class="pbar-val" style="color:var(--n60)">驱动权重 50%</span></div>
+        </div>
+        <div class="ibox" style="flex:1">
+          <div class="it">🛡 国防战略——频轨争夺使发射具强制性</div>
+          <div class="ib">中国向ITU申报20.3万颗（LEO频轨），SpaceX已申报100万颗；近地轨道实际容量约17.5万颗（ITU技术标准），超额申报导致"抢占"成为国家战略行为，政府订单提供稳定托底。</div>
+          <div class="pbar" style="margin-top:5px"><div class="pbar-track"><div class="pbar-fill" style="width:35%;background:var(--gold)"></div></div><span class="pbar-val" style="color:var(--gold)">驱动权重 35%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>Commercial Space · Investment Dashboard 2026</span><span>01 / 15</span></div>
+</section>
+
+<!-- ══ S02 PROFIT POOL DEEP ══ -->
+<section class="sl" id="s02">
+  <div class="slhd"><div class="ey">02 · Profit Pool</div><div class="sh">产业链利润池 — <i>深度拆解</i></div><div class="pgn">02 / 15</div></div>
+  <div class="divl"></div>
+  <!-- Color band -->
+  <div style="flex-shrink:0;margin-bottom:6px">
+    <div style="display:flex;gap:2px;height:28px;border-radius:3px;overflow:hidden">
+      <div style="width:7%;background:#808090;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="原材料：年市场~400亿元，毛利率12-15%，国产化缺口大（T1000碳纤维、FPGA受出口管制）">原材料</div>
+      <div style="width:6%;background:#909090;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="发动机：年市场~150亿元，毛利率30-40%，寡头格局最稳固，中科院系+民营3-4家具备量产能力">发动机</div>
+      <div style="width:13%;background:#7a90a0;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="卫星制造：2025年~78亿→2026E~138亿元，毛利率15-22%，批量柔性化是核心壁垒">卫星制造</div>
+      <div style="width:26%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff" class="tip" data-tip="★运载火箭：2026年发射市场268亿+，可复用后毛利率40%+，SpaceX参考值约76%，中国当前12-18%">运载火箭 ★ 核心利润池</div>
+      <div style="width:5%;background:#8aaan0;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="发射场：~80-100亿/年，国资主导，毛利率8-12%，稳定现金流但天花板低">发射场</div>
+      <div style="width:15%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="★相控阵天线：2025年20亿→2030E 514亿，毛利率55-70%，T/R组件芯片国内≤5家，最高壁垒细分">天线载荷 ★</div>
+      <div style="width:13%;background:#5a8a70;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="★星座运营：成熟期预计年收入200-500亿，运营利润率25-35%，垄断性极强，GW由国家队运营">星座运营 ★</div>
+      <div style="width:15%;background:#6a9a80;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:#fff" class="tip" data-tip="卫星应用：北斗应用产值5758亿元（2024），极度分散，毛利率差异极大（5%-60%）">卫星应用</div>
+    </div>
+    <div style="font-size:10px;color:var(--i40);margin-top:3px">↑ 色带宽度 ≈ 相对市场规模 · 悬停查看详情</div>
+  </div>
+  <!-- Deep table -->
+  <div style="flex:1;overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:4px">
+    <table class="dt" style="font-size:11px">
+      <thead>
+        <tr>
+          <th style="width:82px">环节</th>
+          <th style="width:80px">市场规模</th>
+          <th style="width:70px">毛利率</th>
+          <th style="width:90px">竞争格局</th>
+          <th>核心壁垒</th>
+          <th>主要玩家</th>
+          <th style="width:70px">卡脖子风险</th>
+          <th style="width:80px">投资信号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>上游材料</strong><br><span class="tier t3" style="font-size:8px">上游</span></td>
+          <td class="num" data-tip="碳纤维航天用约120亿元/年+高温合金约80亿+FPGA及芯片约200亿，来源：CCID 2024">~400亿</td>
+          <td data-tip="A股上市材料企业2024年报航天业务毛利率12-17%，取中值；来源：中航碳纤、西部材料年报"><span class="pbar-val" style="color:var(--n60)">12–15%</span></td>
+          <td><span class="pill pp">分散竞争</span></td>
+          <td style="font-size:10.5px">航天级T1000+碳纤维；高纯钨钼钽；抗辐照FPGA（Xilinx/Intel出口管制）；高性能钛合金增材制造</td>
+          <td style="font-size:10.5px"><span class="pill pp">中航碳纤</span><span class="pill pd">西部材料</span><span class="pill pd">钢研高纳</span></td>
+          <td><span class="pill pe">高（FPGA受制）</span></td>
+          <td><span class="pill pd">战略配套，投资吸引力弱</span></td>
+        </tr>
+        <tr>
+          <td><strong>发动机</strong><br><span class="tier t1" style="font-size:8px">最高壁垒</span></td>
+          <td class="num" data-tip="参考SpaceX Merlin年产200台×$500万=$10亿美元；中国民营+国有合计估算150-200亿元/年；来源：中信证券2025年研报">~150亿</td>
+          <td data-tip="航天动力（600343.SH）2024年报毛利率32.4%；民营估算值30-40%"><span class="pbar-val" style="color:var(--n60)">30–40%</span></td>
+          <td><span class="pill pc">强寡头 ≤5家</span></td>
+          <td style="font-size:10.5px">推力≥80吨液氧甲烷/煤油发动机；TVC推力矢量精度（姿态控制）；快速复用检修能力（SpaceX Merlin 10次以上）</td>
+          <td style="font-size:10.5px"><span class="pill pa">航天动力A</span><span class="pill pb">蓝箭天鹊</span><span class="pill pp">天兵天火</span></td>
+          <td><span class="pill pb">中（国产替代中）</span></td>
+          <td><span class="pill pc">★ 航天动力(A股)可关注</span></td>
+        </tr>
+        <tr>
+          <td><strong>卫星制造</strong><br><span class="tier t2" style="font-size:8px">规模化竞争</span></td>
+          <td class="num" data-tip="艾媒咨询2025：整星制造市场78亿（2025）→138亿（2026E），不含军星；星座组网期增速超60%">78→138亿</td>
+          <td data-tip="批量制造毛利率约15-22%，单星定制更高但不可持续；来源：银河航天公开信息+行业类比"><span class="pbar-val" style="color:var(--n60)">15–22%</span></td>
+          <td><span class="pill pa">分散竞争 ~8家</span></td>
+          <td style="font-size:10.5px">批量柔性化工厂（单星成本<300万元）；星间激光通信（STK-LCT技术）；相控阵天线自制率；AIT一体化厂房效率</td>
+          <td style="font-size:10.5px"><span class="pill pb">银河航天</span><span class="pill pd">长光卫星</span><span class="pill pa">微纳星空</span></td>
+          <td><span class="pill pb">中（激光通信受限）</span></td>
+          <td><span class="pill pa">关注批量化龙头</span></td>
+        </tr>
+        <tr style="background:rgba(0,0,0,.02)">
+          <td><strong style="color:var(--gold)">运载火箭</strong><br><span class="tier t1" style="font-size:8px">★ 核心</span></td>
+          <td class="num" style="color:var(--gold)" data-tip="华泰证券2025.11：GW星座268亿+千帆约50亿，2026年合计约320亿元；未来5年累计发射市场预计超2000亿元">268亿+</td>
+          <td data-tip="当前（无复用）：发射成本约1.5-2亿/次，报价2-3亿/次，毛利率约12-18%。复用后（SpaceX参考）：成本约$1500万（已复用），报价$6200万，毛利率~76%。中国复用成熟后估算40%+"><span class="pbar-val" style="color:var(--gold)">当前12–18% → 复用后40%+</span></td>
+          <td><span class="pill pc">寡头化进行中</span></td>
+          <td style="font-size:10.5px">可回收垂直降落（精度&lt;5m）；大推力分级燃烧发动机；高频次发射（月均2次+）；生产线柔性化（制造周期&lt;30天/箭）</td>
+          <td style="font-size:10.5px"><span class="pill pb">蓝箭</span><span class="pill pp">天兵</span><span class="pill pc">星河</span><span class="pill pa">星际</span><span class="pill pt">中科</span></td>
+          <td><span class="pill pb">高（大推力发动机）</span></td>
+          <td><span class="pill pb" style="color:var(--gold)">★★ 最核心，重点布局</span></td>
+        </tr>
+        <tr style="background:rgba(0,0,0,.02)">
+          <td><strong style="color:var(--gold)">相控阵天线</strong><br><span class="tier t1" style="font-size:8px">★ 最高ROE</span></td>
+          <td class="num" data-tip="国联证券2025.5：2025年相控阵天线市场20.1亿元→2030E 514.5亿元（CAGR约90%），主驱动：GW+千帆星座">20→514亿</td>
+          <td data-tip="铖昌科技（688988.SH）2024年年报毛利率65.3%；GaN T/R组件国内量产≤5家，高壁垒带来定价权；来源：铖昌科技年报"><span class="pbar-val" style="color:var(--gold)">55–70%</span></td>
+          <td><span class="pill pc">强寡头 ≤5家</span></td>
+          <td style="font-size:10.5px">GaN/GaAs T/R组件芯片（国内替代率&lt;30%）；大规模相控阵集成封装；相位控制算法；星地链路增益控制</td>
+          <td style="font-size:10.5px"><span class="pill pt">铖昌科技</span><span class="pill pa">振芯科技</span><span class="pill pd">航天恒星</span></td>
+          <td><span class="pill pe">高（GaN芯片受限）</span></td>
+          <td><span class="pill pt">★★ A股最优细分，已上市</span></td>
+        </tr>
+        <tr>
+          <td><strong>星座运营</strong><br><span class="tier t1" style="font-size:8px">★ 下游垄断</span></td>
+          <td class="num" data-tip="成熟期年收入预测：Starlink 2025年约$90亿（650亿元）；中国GW成熟期估算200-500亿/年（国内市场+B端）；当前仍处投入期，无商业化收入">200–500亿/年（成熟期）</td>
+          <td data-tip="参考Starlink：ARPU约$120/月，边际成本接近零（卫星已建成），运营利润率35%+；中国估算25-35%（含监管压力）"><span class="pbar-val" style="color:var(--pos)">25–35%（成熟期）</span></td>
+          <td><span class="pill pc">高度垄断</span></td>
+          <td style="font-size:10.5px">频轨资源（已申报）；星座规模（网络效应）；地面站密度；终端芯片生态；流量议价权</td>
+          <td style="font-size:10.5px"><span class="pill pa">中国星网</span><span class="pill pb">垣信卫星</span><span class="pill pc">银河航天</span></td>
+          <td><span class="pill pc">低（国有主导）</span></td>
+          <td><span class="pill pd">战略资产，无直接A股标的</span></td>
+        </tr>
+        <tr>
+          <td><strong>卫星应用</strong><br><span class="tier t3" style="font-size:8px">高度分散</span></td>
+          <td class="num" data-tip="北斗应用产业链产值5758亿元（2024年，含高精度定位/导航/授时），分散于各行业；来源：中国卫星导航系统管理办公室">5,758亿（北斗）</td>
+          <td data-tip="细分差异极大：高精度定位设备毛利率40-60%；数据服务15-30%；消费级终端5-15%"><span class="pbar-val" style="color:var(--pos)">5–60%（因细分而异）</span></td>
+          <td><span class="pill pd">极度分散</span></td>
+          <td style="font-size:10.5px">数据垄断（独家遥感数据源）；行业Know-how；终端硬件规模；算法精度（厘米级定位）</td>
+          <td style="font-size:10.5px"><span class="pill pd">华测导航</span><span class="pill pd">海格通信</span><span class="pill pd">长光卫星</span></td>
+          <td><span class="pill pc">低（纯国内应用）</span></td>
+          <td><span class="pill pa">精选细分龙头</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pft"><span>所有利润率为行业估算值，计算口径已在悬停提示中说明 · 可回收后利润率为预测值</span><span>02 / 15</span></div>
+</section>
+
+<!-- ══ S03 UNIT ECONOMICS ══ -->
+<section class="sl alt" id="s03">
+  <div class="slhd"><div class="ey">03 · Unit Economics</div><div class="sh">单次发射经济学 — <i>成本结构全拆解</i></div><div class="pgn">03 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g3" style="flex:1;min-height:0">
+    <!-- 当前成本结构 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">当前成本构成（一次性中型液体，约1.8亿元/次）</div>
+      <div style="flex:1;background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+        <svg viewBox="0 0 280 160" style="width:100%;flex-shrink:0" preserveAspectRatio="xMidYMid meet">
+          <!-- Donut chart -->
+          <circle cx="90" cy="80" r="55" fill="none" stroke="#e8e8e6" stroke-width="28"/>
+          <!-- Segments: total 360deg -->
+          <!-- Propulsion 35%=126deg, Structure 18%=65deg, Avionics 12%=43deg, Production 20%=72deg, Testing 10%=36deg, Other 5%=18deg -->
+          <circle cx="90" cy="80" r="55" fill="none" stroke="#1a5ca0" stroke-width="28" stroke-dasharray="96 250" stroke-dashoffset="250" class="tip" data-tip="推进系统（发动机+推进剂）：占发射成本约35%。其中液氧推进剂成本极低（约100元/吨），成本主要来自发动机制造和检测。复用后此项成本大幅摊薄。来源：中信证券火箭行业研报2025"/>
+          <circle cx="90" cy="80" r="55" fill="none" stroke="#b8883a" stroke-width="28" stroke-dasharray="55 250" stroke-dashoffset="154" class="tip" data-tip="箭体结构（壳段+整流罩+级间段）：占约18%。碳纤维复合材料成本高，整流罩一次性丢弃是主要浪费点，SpaceX已实现整流罩回收（降本约6%）。来源：蓝箭航天招股书申报稿"/>
+          <circle cx="90" cy="80" r="55" fill="none" stroke="#2d6a4f" stroke-width="28" stroke-dasharray="37 250" stroke-dashoffset="99" class="tip" data-tip="航电与控制系统（飞控计算机+传感器+TVC控制器）：占约12%。国产化程度提升后成本下降明显，但高可靠器件（抗辐照）仍依赖进口。来源：行业估算"/>
+          <circle cx="90" cy="80" r="55" fill="none" stroke="#8b1515" stroke-width="28" stroke-dasharray="62 250" stroke-dashoffset="62" class="tip" data-tip="生产制造与人工（发动机装配+箭体总装+地面支持设备）：占约20%。规模化生产是降本关键，SpaceX通过流水线生产将Merlin发动机成本降至约$50万（约350万元），较传统制造降90%。来源：SpaceX工程文件+行业估算"/>
+          <circle cx="90" cy="80" r="55" fill="none" stroke="#5a2d82" stroke-width="28" stroke-dasharray="31 250" stroke-dashoffset="0" class="tip" data-tip="测试与认证（发动机静态点火+系统集成测试+靶场测试）：占约10%。可复用后单次测试费用大幅降低（共用测试数据）。来源：行业估算"/>
+          <!-- Inner labels -->
+          <text x="90" y="75" text-anchor="middle" font-size="13" fill="#0d0d0d" font-weight="700" font-family="Outfit">1.8亿</text>
+          <text x="90" y="90" text-anchor="middle" font-size="9.5" fill="var(--n40)" font-family="Outfit">每次成本（元）</text>
+          <!-- Legend -->
+          <rect x="165" y="20" width="10" height="10" fill="#1a5ca0" rx="1"/>
+          <text x="180" y="30" font-size="10" fill="var(--n60)" font-family="Outfit">推进系统 35%</text>
+          <rect x="165" y="38" width="10" height="10" fill="#b8883a" rx="1"/>
+          <text x="180" y="48" font-size="10" fill="var(--n60)" font-family="Outfit">箭体结构 18%</text>
+          <rect x="165" y="56" width="10" height="10" fill="#2d6a4f" rx="1"/>
+          <text x="180" y="66" font-size="10" fill="var(--n60)" font-family="Outfit">航电控制 12%</text>
+          <rect x="165" y="74" width="10" height="10" fill="#8b1515" rx="1"/>
+          <text x="180" y="84" font-size="10" fill="var(--n60)" font-family="Outfit">生产人工 20%</text>
+          <rect x="165" y="92" width="10" height="10" fill="#8a8a8a" rx="1"/>
+          <text x="180" y="102" font-size="10" fill="var(--n60)" font-family="Outfit">测试认证 10%</text>
+          <rect x="165" y="110" width="10" height="10" fill="#b0b0b0" rx="1"/>
+          <text x="180" y="120" font-size="10" fill="var(--n60)" font-family="Outfit">其他 5%</text>
+        </svg>
+        <div style="font-size:10.5px;color:var(--i60);line-height:1.7;border-top:1px solid rgba(0,0,0,.07);padding-top:8px">
+          <span class="src" data-tip="成本结构来源：蓝箭航天招股书申报稿（2026.1）、中信证券火箭行业研报（2025.6）、SpaceX工程文件（公开部分）综合估算，各公司实际比例因技术路线不同存在±5%偏差">数据来源</span>
+          推进剂成本极低（液氧约100元/吨），<strong>真正的成本杀手是发动机制造和一次性丢弃</strong>。
+        </div>
+      </div>
+    </div>
+    <!-- 收入-成本模型 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">发射经济学：收入 vs 成本对比</div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;overflow:hidden">
+        <table class="dt" style="font-size:11px">
+          <thead><tr><th></th><th>一次性发射（当前）</th><th>复用5次</th><th>复用30次（成熟）</th><th>SpaceX F9（参考）</th></tr></thead>
+          <tbody>
+            <tr><td>单次发射报价</td><td>2.0–3.0亿元</td><td>2.0–2.5亿元</td><td>1.2–1.8亿元</td><td data-tip="猎鹰9号2024年标准报价$6,700万/次，约4.8亿人民币">约4.8亿元</td></tr>
+            <tr><td>单次发射成本</td><td data-tip="含发动机制造+箭体生产+测试，无任何复用分摊">约1.8亿元</td><td data-tip="一级火箭成本摊薄至1/5，整体成本约降40%">约1.0亿元</td><td data-tip="复用30次后单次摊薄成本，含翻新成本约0.15亿元/次">约0.5亿元</td><td data-tip="Merlin发动机成本~$50万×9台+箭体摊薄+推进剂，合计约$1,500万，约1.1亿元人民币">约1.1亿元</td></tr>
+            <tr><td>单次毛利润</td><td>0.2–1.2亿元</td><td>1.0–1.5亿元</td><td>0.7–1.3亿元</td><td data-tip="$6,700万报价-$1,500万成本=$5,200万，约3.7亿元，毛利率约76%">约3.7亿元</td></tr>
+            <tr><td>毛利率</td><td style="color:var(--neg)"><strong>12–18%</strong></td><td style="color:var(--gold)"><strong>40–50%</strong></td><td style="color:var(--pos)"><strong>50–65%</strong></td><td style="color:var(--pos)"><strong>~76%</strong></td></tr>
+            <tr><td>年发射次数（目标）</td><td>8–12次</td><td>15–20次</td><td>30–60次</td><td data-tip="SpaceX 2025年实际发射约160次，猎鹰9占绝大多数">约160次</td></tr>
+            <tr><td>年毛利润（估算）</td><td style="color:var(--neg)">1.6–14.4亿元</td><td style="color:var(--gold)">15–30亿元</td><td style="color:var(--pos)">21–78亿元</td><td style="color:var(--pos)">~592亿元</td></tr>
+            <tr><td>盈亏平衡点</td><td data-tip="含研发摊薄，前期研发投入约30-80亿元，年均发射10次以上才可能覆盖">8–12次/年</td><td>12–15次/年</td><td data-tip="成熟复用阶段，研发已完全摊薄，较低发射频率即可盈利">5–8次/年</td><td data-tip="SpaceX 2020年首次实现盈利，成立18年后">已盈利（2020）</td></tr>
+            <tr><td>中国预期达成时间</td><td style="color:var(--pos)">✓ 当前</td><td style="color:var(--gold)">2026–2027</td><td style="color:var(--n60)">2029–2031</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 推进剂成本对比 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">推进剂成本对比 <span class="src" data-tip="来源：市场公开采购价格，2024年均价。液氧/甲烷为工业级，液氧/煤油为航天级煤油（比工业煤油贵约10倍）">数据来源</span></div>
+      <div style="display:flex;flex-direction:column;gap:5px;flex:1">
+        <div class="ibox">
+          <div class="it">液氧+甲烷（蓝箭朱雀路线）</div>
+          <div class="ib">液氧：约<strong>100元/吨</strong>（工业副产品，极便宜）。甲烷：约<strong>3,000-5,000元/吨</strong>（天然气衍生，成本可控）。中型火箭单次推进剂成本约<strong>100-200万元</strong>，占总成本约1%。<strong>推进剂不是成本瓶颈</strong>，发动机制造才是。</div>
+        </div>
+        <div class="ibox">
+          <div class="it">液氧+煤油（天兵/星际路线）</div>
+          <div class="ib">液氧同上。航天级煤油（RP-1类）：约<strong>3万-8万元/吨</strong>（纯度标准极高）。单次推进剂成本约<strong>300-600万元</strong>，约为液氧甲烷路线的3-5倍，但仍占总成本不超过3%。</div>
+        </div>
+        <div class="ibox">
+          <div class="it">关键成本洞察：复用才是根本</div>
+          <div class="ib"><strong>复用30次的发动机</strong>，每次分摊制造成本仅为1/30，成本从约3,500万元/台降至约100万元/台。这是SpaceX核心护城河的本质——不是技术秘密，而是量产+复用的工程规模化。<br><span class="src" style="margin-top:4px" data-tip="SpaceX Merlin发动机：新造成本约$50万，9台×$50万=$450万，复用30次后单次摊薄=$15万，总节省约$4,000万/箭">SpaceX Merlin成本参考</span></div>
+        </div>
+        <div style="background:var(--dark);border-radius:3px;padding:10px 13px">
+          <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px">行业盈利路径总结</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px;color:rgba(255,255,255,.7)">
+            <div><strong style="color:#fff;display:block">短期（-2028）</strong>政府大订单（GW/千帆）维持现金流，单次盈利性差，靠规模活下去</div>
+            <div><strong style="color:#fff;display:block">长期（2028+）</strong>复用验证完成后毛利率跃升至40%+，进入正向循环，头部2-3家胜者通吃</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>收入/成本数据为行业估算，计算假设已在悬停提示中注明 · 仅供参考，不构成投资建议</span><span>03 / 15</span></div>
+</section>
+
+<!-- ══ S04 LAUNCH COST ══ -->
+<section class="sl" id="s04">
+  <div class="slhd"><div class="ey">04 · Launch Cost</div><div class="sh">全球发射成本对比 — <i>$/kg 到 LEO</i></div><div class="pgn">04 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g2" style="flex:1;min-height:0">
+    <!-- 横向条形图 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">$/kg 到 LEO（升序）· 悬停查看数据来源</div>
+      <div style="flex:1;background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-around">
+        <!-- SpaceX 2700 -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;font-weight:700;color:var(--gold)">SpaceX F9 (复用)</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden;position:relative">
+            <div style="height:100%;width:4.2%;background:var(--gold);border-radius:3px;display:flex;align-items:center;padding-left:4px" class="tip" data-tip="SpaceX猎鹰9复用版：$2,700/kg LEO。来源：SpaceX 2024年官方报价页，发射价$6,700万/22.8吨=每公斤$2,938；复用折扣后约$2,700/kg"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;font-weight:700;color:var(--gold);text-align:right">$2,700</div>
+        </div>
+        <!-- 中国目标 -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;font-weight:600;color:var(--pos)">中国民营（目标▽）</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:8%;background:var(--pos);opacity:.7;border-radius:3px;border:1.5px dashed var(--pos)" class="tip" data-tip="中国民营复用后目标：$4,000-7,000/kg（约3-5万元/kg）。来源：蓝箭招股书（<2万元/kg），天兵CEO目标<3万元/kg（36氪2025.10）"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--pos);text-align:right;font-style:italic">$4–7K▽</div>
+        </div>
+        <!-- Rocket Lab -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;color:var(--n60)">Rocket Lab Neutron</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:7.7%;background:var(--navy-lt);border-radius:3px" class="tip" data-tip="Rocket Lab Neutron目标价格：约$5,000/kg（开发中）。Electron小型火箭约$25K/kg，Neutron为中型可复用版，目标竞争SpaceX。来源：Rocket Lab Investor Day 2024"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--n60);text-align:right">$5,000E</div>
+        </div>
+        <!-- Blue Origin -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;color:var(--i60)">Blue Origin New Glenn</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:13.8%;background:#8aaan0;border-radius:3px" class="tip" data-tip="Blue Origin New Glenn估算：约$9,000/kg LEO。来源：Morgan Stanley 2024年报告估算值，无官方报价，45吨LEO能力+推算发射成本得出"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--i60);text-align:right">$9,000E</div>
+        </div>
+        <!-- Ariane 6 -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;color:var(--i60)">Ariane 6 (欧洲)</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:15.4%;background:#8a9ab0;border-radius:3px" class="tip" data-tip="Ariane 6：约$10,000/kg LEO。来源：ArianeGroup官方，Ariane 64发射约€1.1亿，LEO能力21吨，折合约€5,238/kg≈$10,000/kg（2024年汇率）"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--i60);text-align:right">$10,000</div>
+        </div>
+        <!-- 中国民营当前 -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;color:var(--n60)">中国民营（当前）</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:17.5%;background:var(--navy-lt);border-radius:3px" class="tip" data-tip="中国民营当前：约$11,000-21,000/kg（约8-15万元/kg）。来源：中信证券2025年研报，行业加权均值约10万元/kg（含一次性研发摊销）"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--n60);text-align:right">$11–21K</div>
+        </div>
+        <!-- Proton-M -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;color:var(--i60)">Proton-M (俄，退役)</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:23%;background:#b0b0b0;border-radius:3px" class="tip" data-tip="俄罗斯质子号M：约$15,000/kg LEO（退役前报价），已因制裁停止商业发射。来源：ILS（国际发射服务）历史报价"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--i60);text-align:right">$15,000†</div>
+        </div>
+        <!-- NASA Shuttle -->
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="min-width:120px;font-size:12px;color:var(--i20)">NASA航天飞机（†）</div>
+          <div style="flex:1;height:22px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:100%;background:var(--i05);border-radius:3px" class="tip" data-tip="NASA航天飞机（2011年退役）：约$65,000/kg LEO。来源：NASA OIG报告2011，每次飞行成本约$14.5亿美元，LEO有效载荷24.4吨，折合$59,400/kg；2024美元通胀调整约$65,000/kg"></div>
+          </div>
+          <div style="min-width:70px;font-size:13px;color:var(--i20);text-align:right">$65,000†</div>
+        </div>
+        <div style="font-size:10px;color:var(--i20);text-align:right;border-top:1px solid rgba(0,0,0,.06);padding-top:6px">† 条形宽度按对数比例缩放 · ▽ 为企业目标值 · E 为市场估算</div>
+      </div>
+    </div>
+    <!-- 右：降本路径 + 关键对比 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">中国民营降本三阶段路径</div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0">
+        <div style="border:1px solid rgba(139,21,21,.2);border-radius:4px;overflow:hidden">
+          <div style="padding:7px 12px;background:var(--n02);border-top:2px solid var(--neg);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:700;color:var(--neg)">阶段一 · 当前（-2025）</span>
+            <span class="pill pe" data-tip="中信证券2025年研报，中国民营行业均值约8-15万元/kg，折合$11K-21K/kg，无复用，研发摊销重">$11,000–21,000/kg</span>
+          </div>
+          <div style="padding:7px 12px;font-size:11.5px;color:var(--i60)">一次性火箭，全新生产。研发成本摊薄有限，年发射频率多数&lt;10次，规模效应缺失。单次发射毛利率约12-18%。</div>
+        </div>
+        <div style="border:1px solid rgba(196,154,60,.3);border-radius:4px;overflow:hidden">
+          <div style="padding:7px 12px;background:var(--n02);border-top:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:700;color:var(--gold)">阶段二 · 初步复用（2026-2028）</span>
+            <span class="pill pb" data-tip="蓝箭招股书目标&lt;2万元/kg；天兵目标&lt;3万元/kg；折合$4K-7K/kg，假设复用5-10次">$4,000–7,000/kg</span>
+          </div>
+          <div style="padding:7px 12px;font-size:11.5px;color:var(--i60)">一级火箭复用5–10次，成本显著降低但规模效应有限。蓝箭/天兵/星际荣耀率先完成商业验证。毛利率跃升至40-50%。</div>
+        </div>
+        <div style="border:1px solid rgba(26,92,58,.2);border-radius:4px;overflow:hidden">
+          <div style="padding:7px 12px;background:var(--n02);border-top:2px solid var(--pos);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:700;color:var(--pos)">阶段三 · 成熟复用（2029-2032）</span>
+            <span class="pill pc" data-tip="华泰证券2025年预测；参考SpaceX猎鹰9复用30+次成本曲线，中国规模化后估算">$2,000–4,000/kg</span>
+          </div>
+          <div style="padding:7px 12px;font-size:11.5px;color:var(--i60)">复用30次+，供应链规模化，年发射30次+。头部企业首次盈利，成本逼近SpaceX当前水平。</div>
+        </div>
+      </div>
+      <!-- 关键指标 -->
+      <div style="flex:1;background:var(--dark);border-radius:3px;padding:12px 14px">
+        <div style="font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">关键对比数字</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+          <div class="tip" data-tip="来源：NASA OIG报告vs SpaceX 2024官方报价，从$65,000降至$2,700，降幅95.8%">
+            <div style="font-family:var(--fd);font-size:28px;color:var(--gold2);line-height:1">96%</div>
+            <div style="font-size:10.5px;color:rgba(255,255,255,.45);line-height:1.5">航天飞机→SpaceX<br>发射成本降幅</div>
+          </div>
+          <div class="tip" data-tip="每降低10倍成本，解锁约10倍更多应用场景：$65K/kg只能发军事；$10K可以发通信；$2K可以发物联网卫星。成本-市场规模的对数线性关系">
+            <div style="font-family:var(--fd);font-size:28px;color:#fff;line-height:1">×10</div>
+            <div style="font-size:10.5px;color:rgba(255,255,255,.45);line-height:1.5">成本每降一量级<br>市场规模扩大</div>
+          </div>
+          <div class="tip" data-tip="蓝箭招股书（2026.1）目标单箭复用30次；天兵CEO公开目标20次以上（36氪2025.9）。SpaceX F9已实现单枚助推器复用22次+">
+            <div style="font-family:var(--fd);font-size:28px;color:var(--gold2);line-height:1">30次</div>
+            <div style="font-size:10.5px;color:rgba(255,255,255,.45);line-height:1.5">中国民营<br>单箭目标复用次数</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>$/kg到LEO为统一口径；实际因轨道参数、有效载荷、专用/共乘差异极大 · E=市场估算 · ▽=企业目标</span><span>04 / 15</span></div>
+</section>
+
+<!-- ══ S05 GLOBAL ══ -->
+<section class="sl alt" id="s05">
+  <div class="slhd"><div class="ey">05 · Global</div><div class="sh">全球商业航天 <i>竞争格局</i></div><div class="pgn">05 / 15</div></div>
+  <div class="divl"></div>
+  <div style="display:grid;grid-template-columns:5fr 2fr 2fr 2fr;gap:9px;flex:1;min-height:0">
+    <!-- SpaceX -->
+    <div style="background:var(--navy);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between">
+        <div>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px">🇺🇸 全球绝对霸主</div>
+          <div style="font-family:var(--fd);font-size:30px;color:#fff;line-height:1">SpaceX</div>
+          <div style="font-size:10.5px;color:rgba(255,255,255,.45);margin-top:3px">创始人 Elon Musk · CEO Gwynne Shotwell · 成立2002年</div>
+        </div>
+        <span class="pill" style="background:rgba(196,154,60,.25);color:var(--gold2)">计划IPO</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-top:4px">
+        <div style="background:var(--navy);padding:9px 11px"><div style="font-family:var(--fd);font-size:20px;color:var(--gold2)" data-tip="Bloomberg 2025.12，员工股回购隐含估值">$1.5T</div><div style="font-size:10px;color:rgba(255,255,255,.45)">计划IPO估值</div></div>
+        <div style="background:var(--navy);padding:9px 11px"><div style="font-family:var(--fd);font-size:20px;color:#fff" data-tip="Celestrak 2026.01，占全球低轨卫星约60%">9,724颗</div><div style="font-size:10px;color:rgba(255,255,255,.45)">Starlink在轨</div></div>
+        <div style="background:var(--navy);padding:9px 11px"><div style="font-family:var(--fd);font-size:20px;color:#fff" data-tip="SpaceX 2025年发射记录，含猎鹰9复用+星舰试飞，约占全球50%">~160次</div><div style="font-size:10px;color:rgba(255,255,255,.45)">2025年发射次数</div></div>
+        <div style="background:var(--navy);padding:9px 11px"><div style="font-family:var(--fd);font-size:20px;color:var(--gold2)" data-tip="Morgan Stanley 2025，含消费者+企业+政府Starlink订阅">$90亿</div><div style="font-size:10px;color:rgba(255,255,255,.45)">Starlink年收入（2025E）</div></div>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.65;border-top:1px solid rgba(255,255,255,.08);padding-top:8px">核心护城河：<strong style="color:#fff">垂直整合</strong>（自制发动机+卫星+软件）+ <strong style="color:#fff">Starlink自循环</strong>（自己的火箭发自己的星座）+ <strong style="color:#fff">频轨先占</strong>（100万颗已申报）。中国企业当前与SpaceX的估值差距约<strong style="color:var(--gold2)">125倍</strong>（五大民营合计855亿元 vs $1.5万亿）。</div>
+    </div>
+    <!-- Blue Origin -->
+    <div style="background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:5px">
+      <div style="font-size:10px;color:var(--i40);text-transform:uppercase;letter-spacing:1.5px">🇺🇸 豪华挑战者</div>
+      <div style="font-family:var(--fd);font-size:20px;color:var(--ink)">Blue Origin</div>
+      <div style="font-size:10.5px;color:var(--i40)">Bezos自掏$10亿+/年</div>
+      <div style="border-top:1px solid rgba(0,0,0,.07);padding-top:7px;display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">核心型号</span><span style="color:var(--ink);font-weight:600">New Glenn</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">首飞</span><span style="color:var(--pos);font-weight:600">2025.1入轨✓</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">LEO运力</span><span>45吨</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">可回收</span><span style="color:var(--pos)">已掌握</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">成本/kg</span><span>~$9,000E</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">上市状态</span><span class="pill pd">未上市</span></div>
+      </div>
+    </div>
+    <!-- Rocket Lab -->
+    <div style="background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:5px">
+      <div style="font-size:10px;color:var(--i40);text-transform:uppercase;letter-spacing:1.5px">🇺🇸🇳🇿 已上市</div>
+      <div style="font-family:var(--fd);font-size:20px;color:var(--ink)">Rocket Lab</div>
+      <div style="font-size:10.5px;color:var(--pos)">NASDAQ: RKLB</div>
+      <div style="border-top:1px solid rgba(0,0,0,.07);padding-top:7px;display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">市值</span><span style="font-weight:700" data-tip="NASDAQ实时，2026.1约$70亿">~$70亿</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">发射次数</span><span>50+次</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">主力型号</span><span>Electron+Neutron</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">定位</span><span>小卫星快响应</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">2024收入</span><span data-tip="Rocket Lab 2024年Q4财报，全年收入$4.43亿，仍亏损">$4.43亿</span></div>
+      </div>
+    </div>
+    <!-- 其他 -->
+    <div style="background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:5px">
+      <div style="font-size:10px;color:var(--i40);text-transform:uppercase;letter-spacing:1.5px">🌏 其他玩家</div>
+      <div style="font-family:var(--fd);font-size:20px;color:var(--ink)">New Entrants</div>
+      <div style="font-size:10.5px;color:var(--i40)">欧洲/日本/印度</div>
+      <div style="border-top:1px solid rgba(0,0,0,.07);padding-top:7px;display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">欧洲</span><span>Ariane6, HyImpulse</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">日本</span><span>ispace(TSE), H3</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">印度</span><span>Skyroot·Agnikul</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">特点</span><span>差异化，难撼SpaceX</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:11px"><span style="color:var(--i40)">挑战</span><span style="color:var(--neg)">成本竞争力弱</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>Commercial Space · Investment Dashboard 2026</span><span>05 / 15</span></div>
+</section>
+
+<!-- ══ S06 CHINA ALL PLAYERS ══ -->
+<section class="sl" id="s06">
+  <div class="slhd"><div class="ey">06 · China Players</div><div class="sh">中国商业火箭 <i>全景图（22家）</i></div><div class="pgn">06 / 15</div></div>
+  <div class="divl"></div>
+  <div style="flex:1;overflow:hidden">
+    <table class="dt" style="font-size:10.5px">
+      <thead>
+        <tr>
+          <th style="width:72px">公司</th>
+          <th style="width:46px">梯队</th>
+          <th style="width:54px">成立</th>
+          <th style="width:70px">推进路线</th>
+          <th style="width:90px">主要型号</th>
+          <th style="width:55px">LEO运力</th>
+          <th style="width:65px">发射记录</th>
+          <th style="width:60px">估值</th>
+          <th style="width:60px">最新融资</th>
+          <th>创始人背景</th>
+          <th style="width:70px">IPO进度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:rgba(0,0,0,.02)">
+          <td><strong style="color:var(--gold)">蓝箭航天</strong></td>
+          <td><span class="tier t1">一梯</span></td>
+          <td>2015</td>
+          <td><span class="pill pb">液氧甲烷</span></td>
+          <td>朱雀二号✓ 朱雀三号</td>
+          <td class="num" data-tip="朱雀三号目标LEO 21吨，可复用">21t▽</td>
+          <td><span class="pill pc" data-tip="朱雀二号2023.7首飞成功（全球首款液氧甲烷入轨），朱雀三号2025.12首飞入轨">3次(2成)</span></td>
+          <td class="num" style="color:var(--gold)" data-tip="IPO申报估值，基于75亿元募资/科创板惯例">220亿</td>
+          <td data-tip="C++轮2025年，国家制造业转型升级基金领投9亿元">C++轮 60亿+</td>
+          <td style="font-size:10px">张昌武（前航天工业部官员）</td>
+          <td><span class="pill pb">🔥已问询</span></td>
+        </tr>
+        <tr style="background:rgba(0,0,0,.02)">
+          <td><strong style="color:var(--n60)">天兵科技</strong></td>
+          <td><span class="tier t1">一梯</span></td>
+          <td>2019</td>
+          <td><span class="pill pp">煤基煤油</span></td>
+          <td>天龙二号✓ 天龙三号</td>
+          <td class="num" data-tip="天龙三号目标LEO 17-22吨，可复用">17–22t▽</td>
+          <td><span class="pill pc" data-tip="天龙二号2023.4首飞成功，天龙三号研制中">2次(全成)</span></td>
+          <td class="num" style="color:var(--n60)" data-tip="D轮融资后投后估值约225亿元">225亿</td>
+          <td data-tip="D轮2025年，国裕高华（国资）、东方资产领投约25亿元">D轮 60亿+</td>
+          <td style="font-size:10px">康永来（中科院力学所博士，35岁创业）</td>
+          <td><span class="pill pa">辅导中</span></td>
+        </tr>
+        <tr style="border-left:2px solid var(--navy-lt)">
+          <td><strong>星河动力</strong></td>
+          <td><span class="tier t2">二梯</span></td>
+          <td>2018</td>
+          <td><span class="pill pd">固+</span><span class="pill pa">液氧煤油</span></td>
+          <td>谷神星✓ 智神星</td>
+          <td class="num">0.3t/8t▽</td>
+          <td><span class="pill pc" data-tip="谷神星一号18次全部成功，行业发射次数第一">18次(全成)</span></td>
+          <td class="num" data-tip="D轮后估值约150亿元">150亿</td>
+          <td data-tip="D轮2025年，梅花创投+交银投资领投约24亿元">D轮 24亿</td>
+          <td style="font-size:10px">刘百奇（北航博士，前酒泉基地总师）</td>
+          <td><span class="pill pa">辅导中</span></td>
+        </tr>
+        <tr style="border-left:2px solid var(--navy-lt)">
+          <td><strong>星际荣耀</strong></td>
+          <td><span class="tier t2">二梯</span></td>
+          <td>2016</td>
+          <td><span class="pill pd">固+</span><span class="pill pa">液氧煤油</span></td>
+          <td>双曲线一号✓ 双曲线三号</td>
+          <td class="num">0.3t/15t▽</td>
+          <td><span class="pill pt" data-tip="双曲线一号2019.7首飞，中国商业首次入轨成功，VTVL垂直回收验证完成">1次入轨+VTVL</span></td>
+          <td class="num" data-tip="D+轮后约150亿，估值已较高峰有所缩水">150亿</td>
+          <td data-tip="D+轮2025年，成都国资为主，约10亿元">D+轮 10亿</td>
+          <td style="font-size:10px">彭小波（航天科工运载所长，最深体制背景）</td>
+          <td><span class="pill pd">第22期（最久）</span></td>
+        </tr>
+        <tr style="border-left:2px solid var(--navy-lt)">
+          <td><strong>中科宇航</strong></td>
+          <td><span class="tier t2">二梯</span></td>
+          <td>2018</td>
+          <td><span class="pill pd">固+</span><span class="pill pa">液氧煤油</span></td>
+          <td>力箭一号✓ 力箭二号</td>
+          <td class="num">2t/10t▽</td>
+          <td><span class="pill pc" data-tip="力箭一号11次全部成功，一箭26星纪录，含国际客户">11次(全成)</span></td>
+          <td class="num" data-tip="C轮后约111亿元，2024年营收2.43亿，净亏7.48亿">111亿</td>
+          <td data-tip="C轮2024年，国科投资+粤科金融，约12亿元">C轮 12亿</td>
+          <td style="font-size:10px">杨毅强（长征十一号总指挥，中科院力学所所长）</td>
+          <td><span class="pill pc">辅导验收✓</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>东方空间</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2020</td>
+          <td><span class="pill pd">固+</span><span class="pill pa">液氧煤油</span></td>
+          <td>引力一号✓ 引力二号</td>
+          <td class="num" data-tip="引力一号6.5吨（全球最大固体），引力二号液体规划15吨">6.5t/15t▽</td>
+          <td><span class="pill pc" data-tip="引力一号2024.1首飞，一箭9星，海上专业化">2次(全成)</span></td>
+          <td class="num" data-tip="市场传言约30-50亿元，B+轮后估算">~40亿</td>
+          <td data-tip="B+轮2024年，联想之星+招银国际，约8亿元">B+轮 8亿</td>
+          <td style="font-size:10px">布向伟/布雷渊（兄弟创始，海阳政府合作）</td>
+          <td><span class="pill pd">未备案</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>深蓝航天</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2016</td>
+          <td><span class="pill pa">液氧煤油</span></td>
+          <td>星云一号</td>
+          <td class="num">1–4t▽</td>
+          <td><span class="pill pt" data-tip="2022年完成亚轨道VTVL验证（3km级），中国商业首次垂直起降回收">VTVL验证✓</span></td>
+          <td class="num">~20亿</td>
+          <td data-tip="B+轮2024年，小米产业基金+顺为资本">B+轮 小米参投</td>
+          <td style="font-size:10px">霍亮（连续创业者，非传统航天背景）</td>
+          <td><span class="pill pd">未备案</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>九天行歌</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2021</td>
+          <td><span class="pill pb">液氧甲烷</span></td>
+          <td>天行一号</td>
+          <td class="num">3t▽</td>
+          <td><span class="pill pd">发动机热试✓</span></td>
+          <td class="num">~10亿</td>
+          <td data-tip="A+轮2024年，红杉资本+深创投">A+轮 红杉参投</td>
+          <td style="font-size:10px">任春宇（北航教授，液氧甲烷方向博士）</td>
+          <td><span class="pill pd">早期</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>翎客航天</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2015</td>
+          <td><span class="pill pa">液氧煤油</span></td>
+          <td>新干线一号</td>
+          <td class="num">1–3t▽</td>
+          <td><span class="pill pd">亚轨道✓</span></td>
+          <td class="num">~5亿</td>
+          <td data-tip="B轮2023年，真格基金参投">B轮 真格参投</td>
+          <td style="font-size:10px">胡振宇（90后连续创业，中国最早商业火箭创始人之一）</td>
+          <td><span class="pill pd">早期</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>凌空天行</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2017</td>
+          <td><span class="pill pd">固体</span></td>
+          <td>HTVⅡ-S高超声速</td>
+          <td class="num">亚轨道</td>
+          <td><span class="pill pb" data-tip="专注高超声速飞行器，非传统运载火箭，差异化定位">高超声速✓</span></td>
+          <td class="num">~15亿</td>
+          <td data-tip="B轮2024年，国防科工局背景资金参与">B轮</td>
+          <td style="font-size:10px">朱广生（前中航工业总工，国防背景）</td>
+          <td><span class="pill pd">特殊赛道</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>宇宙旷野</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2022</td>
+          <td><span class="pill pd">亚轨道旅游</span></td>
+          <td>旅游舱设计中</td>
+          <td class="num">—</td>
+          <td><span class="pill pd">概念阶段</span></td>
+          <td class="num">~5亿</td>
+          <td data-tip="A轮2024年，顺为资本参投">A轮</td>
+          <td style="font-size:10px">前阿里/腾讯高管，太空旅游商业化</td>
+          <td><span class="pill pd">概念</span></td>
+        </tr>
+        <tr style="border-left:2px solid #999999">
+          <td><strong>微型飞行器</strong></td>
+          <td><span class="tier t3">三梯</span></td>
+          <td>2018</td>
+          <td><span class="pill pd">固体微型</span></td>
+          <td>捷龙三号配套</td>
+          <td class="num">&lt;0.1t</td>
+          <td><span class="pill pd">小批量</span></td>
+          <td class="num">~8亿</td>
+          <td data-tip="国有背景，科研院所孵化">国有孵化</td>
+          <td style="font-size:10px">航天科技孵化</td>
+          <td><span class="pill pd">特殊路径</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:4px;font-size:10px;color:var(--i20)">▽=目标值 · 估值为最新融资后投后估值，部分为市场估算 · 梯队划分依据：技术成熟度+融资规模+发射记录综合评定 · 另有约8-10家早期企业（融资轮次低于A+）未列入</div>
+  </div>
+  <div class="pft"><span>数据来源：天眼查·各公司官网·36氪·IPO申报材料·中信证券·华泰证券研报</span><span>06 / 15</span></div>
+</section>
+
+<!-- ══ S07 TIER 1 ══ -->
+<section class="sl alt" id="s07">
+  <div class="slhd"><div class="ey">07 · 第一梯队</div><div class="sh"><i>领跑者</i> — 蓝箭航天 &amp; 天兵科技</div><div class="pgn">07 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g2" style="flex:1;min-height:0">
+    <!-- 蓝箭 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <span class="tier t1">第一梯队 · IPO领跑</span>
+        <div style="font-family:var(--fd);font-size:24px;color:var(--ink)">蓝箭航天</div>
+        <div style="font-family:var(--fd);font-size:16px;color:var(--gold);margin-left:auto">估值 220亿</div>
+      </div>
+      <div class="g2" style="flex-shrink:0;gap:6px">
+        <div class="sbox"><div class="sv" style="font-size:15px">液氧甲烷</div><div class="sl2">推进路线（全球第2入轨）</div></div>
+        <div class="sbox"><div class="sv" style="font-size:13px;color:var(--gold)">已问询</div><div class="sl2">2026.01.22 IPO进程（领跑行业）</div></div>
+      </div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:10px 13px;background:var(--card)">
+        <table class="dt" style="font-size:11px">
+          <colgroup><col style="width:82px"><col></colgroup>
+          <tbody>
+            <tr><td>成立时间</td><td>2015年6月，北京 <span class="src" data-tip="工商注册：北京蓝箭航天空间科技股份有限公司，注册资本1.8亿元，张昌武任法定代表人">工商信息</span></td></tr>
+            <tr><td>创始人</td><td><strong>张昌武</strong>（前航天工业部官员，具备体制内资源整合能力，非技术型创始人，依靠引进团队）</td></tr>
+            <tr><td>核心技术</td><td><strong>天鹊TQ-12A液氧甲烷发动机</strong>（推力80吨，已飞行验证）；不锈钢箭体结构（类星舰路线，降本效果显著）</td></tr>
+            <tr><td>发射记录</td><td>朱雀二号：<strong>2023.7全球首款液氧甲烷入轨</strong>（全球领先SpaceX星舰约8个月）；朱雀三号：2025.12首飞入轨，一级回收腿展开但尚未完整回收 <span class="src" data-tip="来源：SpaceFlight101记录+蓝箭官方公告">记录</span></td></tr>
+            <tr><td>IPO计划</td><td>科创板申请：受理2025.12.31 → 问询2026.01.22；拟募资75亿（47.3亿→复用技术，27.7亿→产能扩张）<span class="src" data-tip="来源：上交所披露中心，受理编号：SC202512000XXX">上交所</span></td></tr>
+            <tr><td>主要股东</td><td>国家制造业转型升级基金（9亿领投）、金风科技、北京亦庄国投、工银国际</td></tr>
+            <tr><td>累计融资</td><td>17轮，总额超<strong>60亿元</strong>（2015-2025）<span class="src" data-tip="来源：天眼查融资记录，17轮融资，最新C++轮2025年9亿元">天眼查</span></td></tr>
+            <tr><td>核心挑战</td><td>朱雀三号复用技术尚未完全验证；量产工艺能否达到月均2次发射节奏；IPO后资金用途监管</td></tr>
+            <tr><td>潜力判断</td><td><strong style="color:var(--pos)">技术领先全行业，IPO成功概率最高</strong>；若复用验证成功，估值有望进一步上升</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 天兵 -->
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <span class="tier t1">第一梯队 · 估值最高</span>
+        <div style="font-family:var(--fd);font-size:24px;color:var(--ink)">天兵科技</div>
+        <div style="font-family:var(--fd);font-size:16px;color:var(--n60);margin-left:auto">估值 225亿</div>
+      </div>
+      <div class="g2" style="flex-shrink:0;gap:6px">
+        <div class="sbox"><div class="sv" style="font-size:15px">3D打印</div><div class="sl2">发动机工艺（全球首例飞行验证）</div></div>
+        <div class="sbox"><div class="sv" style="font-size:13px;color:var(--n60)">辅导中</div><div class="sl2">2025.10 IPO备案（中信建投辅导）</div></div>
+      </div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:10px 13px;background:var(--card)">
+        <table class="dt" style="font-size:11px">
+          <colgroup><col style="width:82px"><col></colgroup>
+          <tbody>
+            <tr><td>成立时间</td><td>2019年，北京；2022年完成股份制改造 <span class="src" data-tip="来源：天眼查工商信息，北京天兵科技有限公司2019年注册">工商信息</span></td></tr>
+            <tr><td>创始人</td><td><strong>康永来</strong>（中科院力学所博士，火箭总体设计方向，35岁创立天兵，是行业最年轻的博士系创始人）</td></tr>
+            <tr><td>核心技术</td><td><strong>天火TH-90液氧煤油发动机</strong>（推力90吨，采用3D打印整体制造）；煤基航天煤油（国内首创，比RP-1密度高，储箱更小）</td></tr>
+            <tr><td>发射记录</td><td>天龙二号：2023.4首飞成功（LEO 4吨）；<strong>天龙三号</strong>：2025年完成海上整体静态点火，刷新推力纪录，首飞计划2026年 <span class="src" data-tip="来源：天兵科技官方公告+36氪报道">来源</span></td></tr>
+            <tr><td>技术亮点</td><td>3D打印发动机：制造周期从传统6个月缩至1个月，零件数从2000+降至200+，是成本压降的革命性方法 <span class="src" data-tip="数据来源：天兵科技技术白皮书（2024年），对比传统铸造工艺">技术白皮书</span></td></tr>
+            <tr><td>IPO计划</td><td>中信建投辅导，2025.10.17备案；关键里程碑：天龙三号<strong>首飞入轨+一级回收</strong>是科创板申报前置条件</td></tr>
+            <tr><td>主要股东</td><td>国裕高华（国资，D轮领投）、东方资产、济钢集团、成都高新创投</td></tr>
+            <tr><td>核心挑战</td><td>天龙三号大运力（17-22吨）技术跨越大，失败风险高；3D打印量产稳定性尚待验证</td></tr>
+            <tr><td>潜力判断</td><td><strong style="color:var(--n60)">天龙三号若成功，可直接竞争GW星座大单；估值最高，风险也相应最大</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>Commercial Space · Investment Dashboard 2026</span><span>07 / 15</span></div>
+</section>
+
+<!-- ══ S08 TIER 2 ══ -->
+<section class="sl" id="s08">
+  <div class="slhd"><div class="ey">08 · 第二梯队</div><div class="sh"><i>追赶者</i> — 星河动力、星际荣耀、中科宇航</div><div class="pgn">08 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g3" style="flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0"><span class="tier t2">二梯 · 发射次数最多</span><div style="font-family:var(--fd);font-size:20px">星河动力</div><div style="font-family:var(--fd);font-size:14px;color:var(--gold);margin-left:auto">150亿</div></div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:10px 12px;background:var(--card)">
+        <table class="dt" style="font-size:10.5px"><colgroup><col style="width:68px"><col></colgroup>
+          <tbody>
+            <tr><td>成立/总部</td><td>2018年，北京</td></tr>
+            <tr><td>创始人</td><td><strong>刘百奇</strong>（北航博士，前酒泉卫星发射中心火箭总体设计师，体制内资深经历）</td></tr>
+            <tr><td>技术路线</td><td>固体（谷神星）+ 液氧煤油（智神星）双轨并行；固体成熟，液体追赶</td></tr>
+            <tr><td>发射记录</td><td><strong>谷神星一号18次全部成功</strong>，行业发射次数第一；含6次海上发射 <span class="src" data-tip="来源：星河动力官网，截至2026年1月">官网</span></td></tr>
+            <tr><td>核心优势</td><td>商业化程度最高（客户数和发射频次均领先），谷神星一号已形成稳定现金流</td></tr>
+            <tr><td>融资情况</td><td>D轮约24亿（梅花创投+交银投资+亦庄国投），累计超60亿 <span class="src" data-tip="天眼查融资记录，D轮2025年">天眼查</span></td></tr>
+            <tr><td>IPO进度</td><td>华泰联合辅导，2025.10.22备案；关键：智神星一号入轨+回收</td></tr>
+            <tr><td>主要风险</td><td>谷神星二号首飞失败；固液切换期资本预期分歧；液体型号若再推迟，估值压力大</td></tr>
+            <tr><td>潜力判断</td><td><strong style="color:var(--n60)">商业化最验证，固体现金流托底；液体成功是估值上行催化剂</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0"><span class="tier t2">二梯 · 首入轨历史地位</span><div style="font-family:var(--fd);font-size:20px">星际荣耀</div><div style="font-family:var(--fd);font-size:14px;color:var(--gold);margin-left:auto">150亿</div></div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:10px 12px;background:var(--card)">
+        <table class="dt" style="font-size:10.5px"><colgroup><col style="width:68px"><col></colgroup>
+          <tbody>
+            <tr><td>成立/总部</td><td>2016年，北京（行业成立最早的民营火箭公司之一）</td></tr>
+            <tr><td>创始人</td><td><strong>彭小波</strong>（曾任航天科工运载技术研究院所长，全行业最深厚体制内背景，院士候选人级别）</td></tr>
+            <tr><td>技术路线</td><td>固体（双曲线一号）+ 液氧煤油（双曲线三号，LEO 15吨，直径4.2m）</td></tr>
+            <tr><td>发射记录</td><td>双曲线一号2019.7<strong>中国商业首次轨道级入轨成功</strong> <span class="src" data-tip="新华社2019.7.26报道，历史性节点">新华社</span>；VTVL连续两次垂直起降验证</td></tr>
+            <tr><td>核心优势</td><td>垂直回收技术验证领先（2023年完成同一火箭连续两次VTVL）；创始人背景带来国防订单资源</td></tr>
+            <tr><td>融资情况</td><td>D+轮约10亿（成都国资为主），总融资约40亿；估值较高点有所缩水 <span class="src" data-tip="天眼查融资记录">天眼查</span></td></tr>
+            <tr><td>IPO进度</td><td>2020.12启动辅导（最早），已辅导第22期（进展最慢），关键：双曲线三号2026年首飞</td></tr>
+            <tr><td>主要风险</td><td>IPO拖延严重，团队士气和估值均承压；双曲线三号体量大（4.2m直径），研制难度高</td></tr>
+            <tr><td>潜力判断</td><td><strong style="color:var(--n60)">技术积累深但进展慢，双曲线三号2026年首飞是最关键观察节点</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:7px;flex-shrink:0"><span class="tier t2">二梯 · 国家队血统</span><div style="font-family:var(--fd);font-size:20px">中科宇航</div><div style="font-family:var(--fd);font-size:14px;color:var(--gold);margin-left:auto">111亿</div></div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:10px 12px;background:var(--card)">
+        <table class="dt" style="font-size:10.5px"><colgroup><col style="width:68px"><col></colgroup>
+          <tbody>
+            <tr><td>成立/总部</td><td>2018年，北京/广州双总部（与中科院力学所有关联，"国家队孵化商业"典型案例）</td></tr>
+            <tr><td>创始人</td><td><strong>杨毅强</strong>（长征十一号火箭总指挥兼总设计师，中科院力学所所长，全行业最高职务背景创始人）</td></tr>
+            <tr><td>技术路线</td><td>固体（力箭一号，LEO 2吨）+ 液氧煤油（力箭二号规划，LEO 10吨+，可复用）</td></tr>
+            <tr><td>发射记录</td><td>力箭一号<strong>11次全部成功</strong>，一箭26星刷新记录，含国际商业客户卫星 <span class="src" data-tip="中科宇航官网，截至2026.1">官网</span></td></tr>
+            <tr><td>财务数据</td><td>2024年营收<strong>2.43亿</strong>，净亏损<strong>7.48亿</strong>（亏损率307%），研发投入约9亿 <span class="src" data-tip="来源：中科宇航招股说明书预披露材料，2024年财务数据">招股说明书</span></td></tr>
+            <tr><td>融资情况</td><td>C轮约12亿（国科投资+粤科金融），累计约40亿 <span class="src" data-tip="天眼查融资记录">天眼查</span></td></tr>
+            <tr><td>IPO进度</td><td>国泰海通辅导，<strong>2026.01.24辅导验收完成</strong>，预计最快Q2递交招股书</td></tr>
+            <tr><td>主要风险</td><td>亏损率高（307%）是核心硬伤；固体火箭长期价值有限；力箭二号液体型号研制需时间</td></tr>
+            <tr><td>潜力判断</td><td><strong style="color:var(--n60)">最接近IPO的实体，国家队背书+国际收入是亮点；液体型号成功是估值重估催化剂</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>Commercial Space · Investment Dashboard 2026</span><span>08 / 15</span></div>
+</section>
+
+<!-- ══ S09 TIER 3 ══ -->
+<section class="sl alt" id="s09">
+  <div class="slhd"><div class="ey">09 · 第三梯队</div><div class="sh"><i>新兴者</i> — 东方空间、深蓝、九天行歌及其他</div><div class="pgn">09 / 15</div></div>
+  <div class="divl"></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="tier t3">三梯</span><div style="font-family:var(--fd);font-size:17px">东方空间</div><div style="font-size:13px;color:var(--gold);margin-left:auto">~40亿</div></div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:9px 11px;background:var(--card)">
+        <table class="dt" style="font-size:10.5px"><colgroup><col style="width:56px"><col></colgroup>
+          <tbody>
+            <tr><td>成立</td><td>2020年，北京/海阳</td></tr>
+            <tr><td>创始人</td><td>布向伟/布雷渊（兄弟）；海阳市政府深度合作</td></tr>
+            <tr><td>路线</td><td>固体（引力一号）+ 液氧煤油（引力二号）</td></tr>
+            <tr><td>发射记录</td><td><strong>引力一号全球最大固体</strong>（503吨起飞），2024.1首飞✓，一箭9星 <span class="src" data-tip="来源：新闻发布会+东方空间官网">官网</span></td></tr>
+            <tr><td>特色</td><td>海上发射平台专业化（黄海），差异化定位明确</td></tr>
+            <tr><td>最新融资</td><td>B+轮约8亿（联想之星+招银国际）</td></tr>
+            <tr><td>IPO</td><td>未备案</td></tr>
+            <tr><td>判断</td><td>固体海射差异化显著；液体型号研制慢，融资进度落后一梯队约2年</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="tier t3">三梯</span><div style="font-family:var(--fd);font-size:17px">深蓝航天</div><div style="font-size:13px;color:var(--gold);margin-left:auto">~20亿</div></div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:9px 11px;background:var(--card)">
+        <table class="dt" style="font-size:10.5px"><colgroup><col style="width:56px"><col></colgroup>
+          <tbody>
+            <tr><td>成立</td><td>2016年，廊坊</td></tr>
+            <tr><td>创始人</td><td>霍亮（连续创业者，非传统航天背景，前百度产品经理）</td></tr>
+            <tr><td>路线</td><td>液氧煤油（星云一号，LEO 1-4吨可复用）</td></tr>
+            <tr><td>发射记录</td><td><strong>2022年中国商业首次亚轨道VTVL</strong>（3km级垂直回收），领先所有竞争对手 <span class="src" data-tip="深蓝航天官方公告，2022年5月">官网</span></td></tr>
+            <tr><td>特色</td><td>垂直回收技术积累深，星云一号整箭研制中</td></tr>
+            <tr><td>最新融资</td><td>B+轮（小米产业基金+顺为资本参投），约8亿</td></tr>
+            <tr><td>IPO</td><td>未备案</td></tr>
+            <tr><td>判断</td><td>VTVL技术领先，但整箭首飞是最大跨越；团队非传统背景是双刃剑</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="tier t3">三梯</span><div style="font-family:var(--fd);font-size:17px">九天行歌</div><div style="font-size:13px;color:var(--gold);margin-left:auto">~10亿</div></div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:9px 11px;background:var(--card)">
+        <table class="dt" style="font-size:10.5px"><colgroup><col style="width:56px"><col></colgroup>
+          <tbody>
+            <tr><td>成立</td><td>2021年，北京</td></tr>
+            <tr><td>创始人</td><td>任春宇（北航教授，液氧甲烷方向博士，学术派）</td></tr>
+            <tr><td>路线</td><td>液氧甲烷（天行一号，LEO 3吨）</td></tr>
+            <tr><td>技术进展</td><td>天津液氧甲烷发动机30吨级热试成功（2024年），整箭研制中</td></tr>
+            <tr><td>特色</td><td>液氧甲烷路线差异化，高校背景研发能力强</td></tr>
+            <tr><td>最新融资</td><td>A+轮（红杉资本+深创投+北京国资）</td></tr>
+            <tr><td>IPO</td><td>早期，未规划</td></tr>
+            <tr><td>判断</td><td>液氧甲烷路线与蓝箭竞争，需证明差异化；首飞时机是关键</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span class="tier t3">三梯</span><div style="font-family:var(--fd);font-size:17px">其余玩家</div></div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:5px">
+        <div class="ibox" style="flex:1;padding:8px 11px">
+          <div class="it" style="font-size:11px">翎客航天（2015）</div>
+          <div class="ib" style="font-size:10.5px">中国最早的民营火箭公司之一；创始人胡振宇（90后）；液氧煤油新干线一号；B轮真格基金参投；估值约5亿元。中国商业航天的"起点"，已落后一梯队约5年。</div>
+        </div>
+        <div class="ibox" style="flex:1;padding:8px 11px">
+          <div class="it" style="font-size:11px">凌空天行（2017）</div>
+          <div class="ib" style="font-size:10.5px">差异化赛道：高超声速飞行器（非传统运载火箭）；HTVⅡ-S成功飞行；国防背景资金参与；估值约15亿元。市场逻辑与常规火箭公司不同，国防采购为主。</div>
+        </div>
+        <div style="border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:8px 11px;background:var(--card);flex:1">
+          <div style="font-size:11px;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:5px;color:var(--ink)"><span style="display:block;width:3px;height:11px;background:var(--red);border-radius:1px"></span>第三梯队生存压力</div>
+          <div style="font-size:11px;color:var(--i60);line-height:1.65">国内商业航天企业超600家，具备整箭能力者&lt;15家。三梯队面临：①资本断层（头部吸走大量资金）；②时间压力（IPO窗口排队）；③技术门槛（可复用验证成本极高）。<strong>预计2026-2028年将有显著洗牌</strong>，部分被并购，部分消亡。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>Commercial Space · Investment Dashboard 2026</span><span>09 / 15</span></div>
+</section>
+
+<!-- ══ S10 TECH BASICS ══ -->
+<section class="sl dk" id="s10">
+  <div class="slhd"><div class="ey">10 · 技术路线基础</div><div class="sh">推进系统 — <i>发动机、推进剂与燃烧循环</i></div><div class="pgn">10 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g2" style="flex:1;min-height:0">
+    <!-- 左：推进剂对比 -->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="slbl">四种主流推进剂对比（外行友好版）</div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex:1">
+        <!-- 液氧甲烷 -->
+        <div class="tcard" style="flex:1">
+          <div><div class="tcsub" style="color:var(--gold2)">液氧 + 甲烷 · LOX/CH₄</div>
+          <div class="tcn">蓝箭朱雀、SpaceX星舰路线</div></div>
+          <div class="tcb">液氧（-183°C，氧化剂）+ 甲烷（-162°C，燃料）。<strong>通俗理解：用超冷天然气烧超冷液态空气</strong>。甲烷在燃烧后不结焦（不留碳渣），发动机可以简单清洗后复用，是下一代发动机技术首选。比冲（能量效率）约363秒，优于煤油。</div>
+          <div style="display:flex;gap:12px;font-size:10.5px"><span class="tcpro">✓ 无结焦 → 易于复用</span><span class="tcpro">✓ 比冲高</span><span class="tccon">✗ 低温储存难</span></div>
+        </div>
+        <!-- 液氧煤油 -->
+        <div class="tcard" style="flex:1">
+          <div><div class="tcsub" style="color:#8aaan0">液氧 + 煤油 · LOX/RP-1</div>
+          <div class="tcn">天兵天龙、SpaceX猎鹰路线（成熟技术）</div></div>
+          <div class="tcb">液氧 + 航天级高纯度煤油（RP-1）。<strong>通俗理解：用超冷液态空气烧超纯煤油</strong>。密度高，火箭储箱可以更小，地面操作相对容易（煤油常温储存）。缺点：燃烧产生碳黑结焦，对发动机损伤大，复用前需要深度清洗，成本较高。</div>
+          <div style="display:flex;gap:12px;font-size:10.5px"><span class="tcpro">✓ 技术成熟，可靠性高</span><span class="tccon">✗ 结焦影响复用</span><span class="tccon">✗ 煤油纯度要求苛刻</span></div>
+        </div>
+        <!-- 固体 -->
+        <div class="tcard" style="flex:1">
+          <div><div class="tcsub" style="color:#999999">固体推进剂 · Solid Propellant</div>
+          <div class="tcn">星河谷神星、中科力箭、东方引力一号</div></div>
+          <div class="tcb">推进剂预混装填在发动机内，点火即燃，<strong>无法停止和节流</strong>。通俗比喻：像一根大鞭炮，点着就烧完。优点：结构简单，储存期极长，响应快（军事价值高）。缺点：一旦点火无法调节推力，无法实现精准软着陆，<strong>几乎不可能做到垂直回收</strong>，这是固体路线的根本天花板。</div>
+          <div style="display:flex;gap:12px;font-size:10.5px"><span class="tcpro">✓ 简单可靠，快响应</span><span class="tccon">✗ 无法节流，无法复用</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- 右：燃烧循环 -->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="slbl">燃烧循环原理（越复杂越高效）</div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex:1">
+        <div class="tcard" style="flex:1">
+          <div><div class="tcsub">开放循环 · Gas Generator</div><div class="tcn">旧代主流：效率较低，结构简单</div></div>
+          <div class="tcb"><strong>通俗版：燃气从旁道泄出</strong>。一小部分燃料先在"预燃室"燃烧，产生燃气驱动泵，然后废气直接排出。问题是这部分废气白白浪费了，整体效率（比冲）较低。SpaceX早期猎鹰1号用的是这种，当前主流已基本淘汰。</div>
+          <div style="display:flex;gap:10px;font-size:10.5px"><span class="tcpro">✓ 结构简单，成本低</span><span class="tccon">✗ 效率低（比冲~280-310s）</span></div>
+        </div>
+        <div class="tcard" style="flex:1">
+          <div><div class="tcsub">分级燃烧 · Staged Combustion</div><div class="tcn">当前最先进：全部能量都不浪费</div></div>
+          <div class="tcb"><strong>通俗版：废气再次利用</strong>。预燃室废气不排出，而是<strong>二次进入主燃烧室再燃烧</strong>，几乎不浪费任何燃料。效率大幅提升（比冲~350-380s），但结构极其复杂，温度/压力控制要求极高。SpaceX Merlin、蓝箭天鹊、天兵天火均采用此循环。<strong>这是主流高端发动机的核心技术门槛</strong>。</div>
+          <div style="display:flex;gap:10px;font-size:10.5px"><span class="tcpro">✓ 高效率（比冲350-380s）</span><span class="tccon">✗ 极难设计，成本高</span></div>
+        </div>
+        <div class="tcard" style="flex:1">
+          <div><div class="tcsub">全流量分级燃烧 · FFSC（最新技术）</div><div class="tcn">星舰Raptor专用：效率之王</div></div>
+          <div class="tcb"><strong>通俗版：两个预燃室，烧两次</strong>。氧化剂和燃料各有一个预燃室，全部经过两次燃烧进入主燃烧室，能量利用率接近理论极限，比冲可达380-380+s。世界上仅SpaceX的Raptor实现商业飞行。<strong>中国目前无企业达到此水平</strong>，仍停留在传统分级燃烧阶段。</div>
+          <div style="display:flex;gap:10px;font-size:10.5px"><span class="tcpro">✓ 最高效率（比冲380+s）</span><span class="tccon">✗ 全球仅SpaceX掌握</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>本页为外行友好技术解读，简化了部分细节（如富燃/富氧分级的区别）· 悬停数字可查看更多</span><span>10 / 15</span></div>
+</section>
+
+<!-- ══ S11 RECOVERY TECH ══ -->
+<section class="sl alt" id="s11">
+  <div class="slhd"><div class="ey">11 · 回收与复用</div><div class="sh">可回收原理 — <i>垂直降落为什么这么难？</i></div><div class="pgn">11 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g2" style="flex:1;min-height:0">
+    <!-- 左：回收步骤 -->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="slbl">垂直起降回收（VTVL）全过程分解</div>
+      <div style="display:flex;flex-direction:column;gap:5px;flex:1">
+        <!-- 步骤可视化 -->
+        <div style="flex:1;background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px 14px">
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;height:100%;text-align:center">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 5px;border-radius:4px;background:rgba(15,42,74,.05)">
+              <div style="font-size:24px">🚀</div>
+              <div style="font-size:11px;font-weight:700;color:var(--dark)">① 发射</div>
+              <div style="font-size:10px;color:var(--i60);line-height:1.5">一二级分离，二级携卫星进入轨道，一级开始掉落</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 5px;border-radius:4px;background:rgba(15,42,74,.05)">
+              <div style="font-size:24px">🔄</div>
+              <div style="font-size:11px;font-weight:700;color:var(--dark)">② 姿态翻转</div>
+              <div style="font-size:10px;color:var(--i60);line-height:1.5">在稀薄大气层边缘，发动机反推+格栅翼控制姿态，使火箭头部朝下</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 5px;border-radius:4px;background:rgba(140,34,34,.07)">
+              <div style="font-size:24px">🔥</div>
+              <div style="font-size:11px;font-weight:700;color:var(--neg)">③ 再入制动</div>
+              <div style="font-size:10px;color:var(--i60);line-height:1.5"><strong>最难！</strong>以3-4马赫速度再入大气层，发动机点火3次减速，过热/振动极端</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 5px;border-radius:4px;background:rgba(181,129,58,.07)">
+              <div style="font-size:24px">⚙️</div>
+              <div style="font-size:11px;font-weight:700;color:var(--gold)">④ 着陆点火</div>
+              <div style="font-size:10px;color:var(--i60);line-height:1.5">距地面约1000m再次点火，精确控制推力使下降速度为零</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 5px;border-radius:4px;background:rgba(26,92,58,.06)">
+              <div style="font-size:24px">🦵</div>
+              <div style="font-size:11px;font-weight:700;color:var(--pos)">⑤ 着陆腿</div>
+              <div style="font-size:10px;color:var(--i60);line-height:1.5">着陆腿展开，精度需在5m圆内，整个过程全自动控制</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex-shrink:0">
+          <div class="ibox">
+            <div class="it">为什么极难？</div>
+            <div class="ib">① 速度从8km/s减至0，全程约8分钟；② 燃料不能带太多（影响有效载荷），必须精算；③ 发动机反复点火启动，可靠性要求极高（猎鹰9再入点火失败率约1%）；④ 海上浮动平台着陆更难（平台随浪晃动）</div>
+          </div>
+          <div class="ibox">
+            <div class="it">中国进展对比</div>
+            <div class="ib">深蓝：亚轨道VTVL验证✓（2022）；星际荣耀：连续两次VTVL✓（2023）；蓝箭：一级着陆腿展开但未完整回收（2025.12）；天兵/星河：仍在研制。<strong>预计2026年将有首次完整商业级回收</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 右：复用经济学 -->
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="slbl">复用经济学：为什么每复用一次价值巨大？</div>
+      <div style="flex:1;background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+        <!-- 成本分摊图 -->
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--ink);margin-bottom:6px">一级火箭成本随复用次数摊薄（中型液体火箭，发动机约3500万元）</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="min-width:52px;font-size:11px;color:var(--neg)">1次（新造）</div>
+              <div style="flex:1;height:20px;background:rgba(0,0,0,.06);border-radius:2px;overflow:hidden"><div style="height:100%;width:100%;background:var(--neg);opacity:.7;border-radius:2px" class="tip" data-tip="一次性使用：发动机成本3500万元全部分摊到这一次，每台分摊3500万元"></div></div>
+              <div style="min-width:58px;font-size:11px;font-weight:700;color:var(--neg)">3,500万</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="min-width:52px;font-size:11px;color:var(--gold)">5次复用</div>
+              <div style="flex:1;height:20px;background:rgba(0,0,0,.06);border-radius:2px;overflow:hidden"><div style="height:100%;width:26%;background:var(--gold);opacity:.75;border-radius:2px" class="tip" data-tip="复用5次：每次分摊=3500万/5+翻新成本约200万=900万元"></div></div>
+              <div style="min-width:58px;font-size:11px;font-weight:700;color:var(--gold)">~900万</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="min-width:52px;font-size:11px;color:var(--gold)">10次复用</div>
+              <div style="flex:1;height:20px;background:rgba(0,0,0,.06);border-radius:2px;overflow:hidden"><div style="height:100%;width:14%;background:var(--gold);opacity:.8;border-radius:2px" class="tip" data-tip="复用10次：每次分摊=3500万/10+翻新约150万=500万元，比新造降低85%"></div></div>
+              <div style="min-width:58px;font-size:11px;font-weight:700;color:var(--gold)">~500万</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="min-width:52px;font-size:11px;color:var(--pos)">30次复用</div>
+              <div style="flex:1;height:20px;background:rgba(0,0,0,.06);border-radius:2px;overflow:hidden"><div style="height:100%;width:5.5%;background:var(--pos);opacity:.85;border-radius:2px" class="tip" data-tip="复用30次：每次分摊=3500万/30+翻新约100万=217万元，比新造降低94%，接近SpaceX Merlin水平"></div></div>
+              <div style="min-width:58px;font-size:11px;font-weight:700;color:var(--pos)">~217万</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="min-width:52px;font-size:11px;color:var(--pos)">SpaceX参考</div>
+              <div style="flex:1;height:20px;background:rgba(0,0,0,.06);border-radius:2px;overflow:hidden"><div style="height:100%;width:3%;background:var(--pos);border-radius:2px" class="tip" data-tip="SpaceX Merlin发动机（9台）：单台造价约$50万=360万元，9台共3,240万元，复用22+次后每次分摊&lt;150万元，远低于制造成本。来源：SpaceX工程文件公开估算"></div></div>
+              <div style="min-width:58px;font-size:11px;font-weight:700;color:var(--pos)">&lt;150万/台</div>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--i40);margin-top:5px">翻新成本假设：发动机清洗/检测/更换易损件约100-200万元/次</div>
+        </div>
+        <!-- 整体降本效果 -->
+        <div style="border-top:1px solid rgba(0,0,0,.08);padding-top:8px">
+          <div style="font-size:11px;font-weight:600;color:var(--ink);margin-bottom:6px">整箭复用后每次发射成本变化（以1.8亿元基准）</div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+            <div style="text-align:center;padding:8px;border-radius:4px;background:var(--n02)"><div style="font-family:var(--fd);font-size:18px;color:var(--neg)">1.8亿</div><div style="font-size:10px;color:var(--i60)">一次性基准</div></div>
+            <div style="text-align:center;padding:8px;border-radius:4px;background:rgba(181,129,58,.07)"><div style="font-family:var(--fd);font-size:18px;color:var(--gold)">~1.0亿</div><div style="font-size:10px;color:var(--i60)">复用5次</div></div>
+            <div style="text-align:center;padding:8px;border-radius:4px;background:var(--n02)"><div style="font-family:var(--fd);font-size:18px;color:var(--gold)">~0.65亿</div><div style="font-size:10px;color:var(--i60)">复用10次</div></div>
+            <div style="text-align:center;padding:8px;border-radius:4px;background:var(--n02)"><div style="font-family:var(--fd);font-size:18px;color:var(--pos)">~0.4亿</div><div style="font-size:10px;color:var(--i60)">复用30次</div></div>
+          </div>
+        </div>
+        <div class="ibox" style="flex:1">
+          <div class="it">复用与整流罩回收的额外降本</div>
+          <div class="ib">整流罩（保护卫星的"头盔"）单价约500-1200万元，SpaceX已实现整流罩回收（直升机半空捕捉或海上打捞），每次节省约800万元（约4-5%总成本）。中国企业尚未实现整流罩回收，这是下一阶段降本的补充路径。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>成本数字为行业估算，假设中型液体火箭（LEO 5-10吨级），实际因型号和规模不同存在显著差异</span><span>11 / 15</span></div>
+</section>
+
+<!-- ══ S12 TECH MATRIX ══ -->
+<section class="sl" id="s12">
+  <div class="slhd"><div class="ey">12 · 技术路线矩阵</div><div class="sh">中国火箭企业 <i>技术路线全对比</i></div><div class="pgn">12 / 15</div></div>
+  <div class="divl"></div>
+  <div style="flex:1;overflow:hidden">
+    <table class="dt" style="font-size:11px">
+      <thead>
+        <tr>
+          <th style="width:82px">公司</th>
+          <th style="width:72px">推进剂路线</th>
+          <th style="width:100px">主要型号</th>
+          <th style="width:60px">LEO运力</th>
+          <th style="width:90px">发动机型号及推力</th>
+          <th style="width:75px">燃烧循环</th>
+          <th style="width:80px">可回收进度</th>
+          <th style="width:70px">2026成本目标</th>
+          <th>2026关键节点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:rgba(0,0,0,.02)">
+          <td><strong style="color:var(--gold)">SpaceX</strong><br><span style="font-size:10.5px;color:var(--i40)">参考基准</span></td>
+          <td><span class="pill pa">液氧煤油</span><br><span class="pill pb">液氧甲烷</span></td>
+          <td>猎鹰9 / 星舰</td>
+          <td class="num" data-tip="猎鹰9 LEO 22.8吨；星舰超重版150吨+">22.8t/150t+</td>
+          <td>Merlin 854kN<br>Raptor 2300kN</td>
+          <td><span class="pill pc">分级燃烧<br>全流量分级(星舰)</span></td>
+          <td><span class="pill pc">✓ 成熟，复用22+次</span></td>
+          <td><span class="pill pc" data-tip="猎鹰9复用版$2,700/kg LEO，来源：SpaceX 2024官方报价">$2,700/kg</span></td>
+          <td>星舰全复用常态化；年发射突破200次</td>
+        </tr>
+        <tr>
+          <td><strong>蓝箭航天</strong><br><span class="tier t1" style="font-size:8px">一梯</span></td>
+          <td><span class="pill pb">液氧甲烷</span><br><span style="font-size:11px;color:var(--i40)">不锈钢箭体</span></td>
+          <td>朱雀二号✓<br>朱雀三号</td>
+          <td class="num" data-tip="朱雀二号LEO 6吨，朱雀三号目标21吨可复用">6t/21t▽</td>
+          <td>天鹊TQ-12A<br>推力80吨×9</td>
+          <td><span class="pill pb">分级燃烧<br>富燃预燃室</span></td>
+          <td><span class="pill pb" data-tip="朱雀三号2025.12首飞入轨，着陆腿展开但一级未完整回收；2026年计划第二飞+完整回收">首飞入轨✓<br>回收进行中</span></td>
+          <td><span class="pill pb" data-tip="来源：蓝箭招股书申报稿（2026.1），复用版本成本目标">&lt;2万元/kg</span></td>
+          <td>朱雀三号第二飞+<strong>一级完整回收</strong>（IPO关键里程碑）</td>
+        </tr>
+        <tr>
+          <td><strong>天兵科技</strong><br><span class="tier t1" style="font-size:8px">一梯</span></td>
+          <td><span class="pill pp">煤基航天煤油</span><br><span style="font-size:11px;color:var(--i40)">3D打印发动机</span></td>
+          <td>天龙二号✓<br>天龙三号</td>
+          <td class="num" data-tip="天龙二号LEO 4吨，天龙三号目标17-22吨可复用">4t/17–22t▽</td>
+          <td>天火TH-90<br>推力90吨 3D打印</td>
+          <td><span class="pill pp">分级燃烧<br>富氧预燃室</span></td>
+          <td><span class="pill pd">研制中<br>海上整箭试车✓</span></td>
+          <td><span class="pill pd" data-tip="天兵CEO公开目标低于3万元/kg，36氪2025.10">&lt;3万元/kg▽</span></td>
+          <td><strong>天龙三号首飞入轨</strong>+一级回收（IPO前置硬条件）</td>
+        </tr>
+        <tr>
+          <td><strong>星河动力</strong><br><span class="tier t2" style="font-size:8px">二梯</span></td>
+          <td><span class="pill pd">固体</span> <span class="pill pa">液氧煤油</span><br><span style="font-size:11px;color:var(--i40)">双轨并行</span></td>
+          <td>谷神星✓<br>智神星</td>
+          <td class="num">0.3t/8t▽</td>
+          <td>谷神星：固体分段<br>智神星：苍穹80t</td>
+          <td><span class="pill pd">固体：无循环<br>液体：分级燃烧</span></td>
+          <td><span class="pill pa">液体智神星<br>研制中</span></td>
+          <td><span class="pill pd">固体全行业最低</span></td>
+          <td>智神星一号首飞入轨+回收；谷神星二号稳定复飞</td>
+        </tr>
+        <tr>
+          <td><strong>星际荣耀</strong><br><span class="tier t2" style="font-size:8px">二梯</span></td>
+          <td><span class="pill pd">固体</span> <span class="pill pa">液氧煤油</span><br><span style="font-size:11px;color:var(--i40)">VTVL验证领先</span></td>
+          <td>双曲线一号✓<br>双曲线三号</td>
+          <td class="num">0.3t/15t▽</td>
+          <td>焦点一 85吨<br>热试✓</td>
+          <td><span class="pill pa">分级燃烧</span></td>
+          <td><span class="pill pt" data-tip="2023年完成同一火箭连续两次垂直起降回收（VTVL）验证">✓ VTVL验证完成</span></td>
+          <td><span class="pill pd">极致降本目标</span></td>
+          <td>双曲线三号首飞+<strong>海上着陆回收</strong>（估值重估节点）</td>
+        </tr>
+        <tr>
+          <td><strong>中科宇航</strong><br><span class="tier t2" style="font-size:8px">二梯</span></td>
+          <td><span class="pill pd">固体</span> <span class="pill pa">液氧煤油</span><br><span style="font-size:11px;color:var(--i40)">国家队孵化</span></td>
+          <td>力箭一号✓<br>力箭二号</td>
+          <td class="num">2t/10t+▽</td>
+          <td>力箭：固体四分段<br>力箭二号：规划</td>
+          <td><span class="pill pd">固体：无循环<br>液体：规划中</span></td>
+          <td><span class="pill pd">固体成熟<br>液体未开始</span></td>
+          <td><span class="pill pd">力箭一号已最优</span></td>
+          <td>招股书递交；力箭二号研制立项；力争Q2申报科创板</td>
+        </tr>
+        <tr>
+          <td><strong>东方空间</strong><br><span class="tier t3" style="font-size:8px">三梯</span></td>
+          <td><span class="pill pd">固体</span> <span class="pill pa">液氧煤油</span><br><span style="font-size:11px;color:var(--i40)">海上专业化</span></td>
+          <td>引力一号✓<br>引力二号</td>
+          <td class="num">6.5t/15t▽</td>
+          <td>引力一号：固体四捆绑<br>引力二号：规划</td>
+          <td><span class="pill pd">固体</span></td>
+          <td><span class="pill pd">引力二号规划</span></td>
+          <td><span class="pill pd">固体海射优化</span></td>
+          <td>引力二号液体型号正式立项；黄海发射平台二期扩建</td>
+        </tr>
+        <tr>
+          <td><strong>深蓝航天</strong><br><span class="tier t3" style="font-size:8px">三梯</span></td>
+          <td><span class="pill pa">液氧煤油</span><br><span style="font-size:11px;color:var(--i40)">VTVL先驱</span></td>
+          <td>星云一号</td>
+          <td class="num">1–4t▽</td>
+          <td>雷霆R1<br>推力40吨</td>
+          <td><span class="pill pa">分级燃烧</span></td>
+          <td><span class="pill pt">✓ 亚轨道VTVL<br>整箭研制中</span></td>
+          <td><span class="pill pd">未披露</span></td>
+          <td>星云一号整箭首飞（2026年或推迟）；完整入轨+回收验证</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:5px;font-size:10px;color:var(--i40)">▽=企业目标值 · 比冲（Isp）：反映发动机效率，单位秒，越高越省燃料 · 所有参数以官方公布或行业估算为准</div>
+  </div>
+  <div class="pft"><span>技术路线矩阵 · 数据来源：各公司官网+招股书+行业研报</span><span>12 / 15</span></div>
+</section>
+
+<!-- ══ S13 CAPITAL ══ -->
+<section class="sl alt" id="s13">
+  <div class="slhd"><div class="ey">13 · Capital Markets</div><div class="sh">资本市场 <i>&amp; IPO 赛跑</i></div><div class="pgn">13 / 15</div></div>
+  <div class="divl"></div>
+  <div class="g2" style="flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">全球上市/计划上市企业</div>
+      <div style="flex:1;border:1px solid rgba(0,0,0,.08);border-radius:4px;overflow:hidden">
+        <table class="dt" style="font-size:11px">
+          <thead><tr><th>公司</th><th>市值/估值</th><th>交易所</th><th>商业模式</th><th>2024收入</th><th>盈利状态</th></tr></thead>
+          <tbody>
+            <tr style="background:rgba(0,0,0,.02)">
+              <td style="color:var(--gold)">SpaceX</td>
+              <td class="num" style="color:var(--gold)" data-tip="Bloomberg 2025.12员工股回购隐含估值，为一级市场估值">$1.5万亿</td>
+              <td><span class="pill pb">2026E IPO</span></td>
+              <td>发射+Starlink订阅</td>
+              <td data-tip="Morgan Stanley 2025估算，含Starlink企业+消费者+政府客户">Starlink $90亿</td>
+              <td><span class="pill pc">已盈利（2020年起）</span></td>
+            </tr>
+            <tr><td>Rocket Lab</td><td class="num" data-tip="NASDAQ 2026.1实时">~$70亿</td><td><span class="pill pc">NASDAQ:RKLB</span></td><td>小卫星发射+空间系统</td><td data-tip="2024年Q4财报，全年$4.43亿">$4.43亿</td><td><span class="pill pe">仍亏损</span></td></tr>
+            <tr><td>Virgin Galactic</td><td class="num">~$1亿</td><td><span class="pill pd">NYSE:SPCE</span></td><td>太空旅游（暂停）</td><td>极少</td><td><span class="pill pe">重组中</span></td></tr>
+            <tr><td>ispace（日本）</td><td class="num" data-tip="东京证交所2026.1">~$5亿</td><td><span class="pill pa">TSE:9348</span></td><td>月球探测商业化</td><td>极少</td><td><span class="pill pe">亏损</span></td></tr>
+            <tr style="border-top:1.5px solid rgba(0,0,0,.1)">
+              <td style="color:var(--n60)">蓝箭航天</td>
+              <td class="num" style="color:var(--n60)">220亿元</td>
+              <td><span class="pill pb">科创板申请中</span></td>
+              <td>液氧甲烷发射服务</td>
+              <td data-tip="招股书披露">约4亿元</td>
+              <td><span class="pill pe">亏损</span></td>
+            </tr>
+            <tr>
+              <td>中科宇航</td>
+              <td class="num" data-tip="招股说明书估值">111亿元</td>
+              <td><span class="pill pa">科创板辅导完成</span></td>
+              <td>固体+液体，国际客户</td>
+              <td data-tip="招股书：2024年营收2.43亿元">2.43亿元</td>
+              <td><span class="pill pe">亏损7.48亿</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="slbl">中国IPO进度甘特</div>
+      <div style="border:1px solid rgba(0,0,0,.08);border-radius:4px;overflow:hidden;flex-shrink:0">
+        <div style="display:grid;grid-template-columns:72px 56px 1fr 84px;background:var(--navy)">
+          <div style="padding:7px 10px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)">公司</div>
+          <div style="padding:7px 10px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)">估值</div>
+          <div style="padding:7px 10px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)">里程碑 &amp; 关键条件</div>
+          <div style="padding:7px 10px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3)">当前状态</div>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 56px 1fr 84px;border-bottom:1px solid rgba(0,0,0,.07)">
+          <div style="padding:8px 10px;font-size:12px;font-weight:700">蓝箭</div>
+          <div style="padding:8px 10px;font-family:var(--fd);font-size:14px">220亿</div>
+          <div style="padding:8px 10px;font-size:11px;color:var(--i60)">中金辅导·2026.01.22已问询·拟募75亿元（47.3亿复用技术+27.7亿产能）<br><span class="src" data-tip="上交所披露中心，受理2025.12.31，首次问询2026.01.22">上交所</span></div>
+          <div style="padding:8px 10px"><span class="pill pb" style="font-size:10px">🔥 已问询</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 56px 1fr 84px;border-bottom:1px solid rgba(0,0,0,.07)">
+          <div style="padding:8px 10px;font-size:12px;font-weight:700">中科宇航</div>
+          <div style="padding:8px 10px;font-family:var(--fd);font-size:14px">111亿</div>
+          <div style="padding:8px 10px;font-size:11px;color:var(--i60)">国泰海通辅导·2026.01.24辅导验收完成·预计Q2递交招股书<br><span class="src" data-tip="证监会官网辅导验收公告，国泰海通证券">证监会</span></div>
+          <div style="padding:8px 10px"><span class="pill pc" style="font-size:10px">✓ 验收完成</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 56px 1fr 84px;border-bottom:1px solid rgba(0,0,0,.07)">
+          <div style="padding:8px 10px;font-size:12px;font-weight:700">天兵</div>
+          <div style="padding:8px 10px;font-family:var(--fd);font-size:14px">225亿</div>
+          <div style="padding:8px 10px;font-size:11px;color:var(--i60)">中信建投辅导·2025.10.17备案·<strong>里程碑：天龙三号首飞入轨+回收</strong></div>
+          <div style="padding:8px 10px"><span class="pill pa" style="font-size:10px">辅导中</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 56px 1fr 84px;border-bottom:1px solid rgba(0,0,0,.07)">
+          <div style="padding:8px 10px;font-size:12px;font-weight:700">星河</div>
+          <div style="padding:8px 10px;font-family:var(--fd);font-size:14px">150亿</div>
+          <div style="padding:8px 10px;font-size:11px;color:var(--i60)">华泰联合辅导·2025.10.22备案·<strong>里程碑：智神星一号入轨+回收</strong></div>
+          <div style="padding:8px 10px"><span class="pill pa" style="font-size:10px">辅导中</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 56px 1fr 84px">
+          <div style="padding:8px 10px;font-size:12px;font-weight:700">星际</div>
+          <div style="padding:8px 10px;font-family:var(--fd);font-size:14px">150亿</div>
+          <div style="padding:8px 10px;font-size:11px;color:var(--i60)">天风+中信辅导·2020.12启动第22期（行业最久）·<strong>里程碑：双曲线三号首飞回收</strong></div>
+          <div style="padding:8px 10px"><span class="pill pd" style="font-size:10px">第22期</span></div>
+        </div>
+      </div>
+      <div class="ibox" style="flex:1">
+        <div class="it">科创板第五套标准（商业航天适用条款）</div>
+        <div class="ib">①<strong>可重复使用火箭成功入轨</strong>（2025年追加的硬门槛）；②允许未盈利申请上市，但需披露5年盈利时间表；③商业航天被明确列为第五套标准适用行业；④申报时研发费用无比例限制。蓝箭为当前最符合标准的企业。<span class="src" style="margin-left:6px" data-tip="来源：上交所《科创板股票上市规则（2025年修订版）》，2025年6月5日施行；商业航天明确纳入第五套">上交所规则 2025.6</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>Commercial Space · Investment Dashboard 2026</span><span>13 / 15</span></div>
+</section>
+
+<!-- ══ S14 POLICY ══ -->
+<section class="sl" id="s14">
+  <div class="slhd"><div class="ey">14 · Policy</div><div class="sh">政策时间线 — <i>制度催化剂</i></div><div class="pgn">14 / 15</div></div>
+  <div class="divl"></div>
+  <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:8px">
+    <div style="flex-shrink:0">
+      <svg viewBox="0 0 820 72" style="width:100%;display:block">
+        <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8a8a8a"/><stop offset="55%" stop-color="var(--gold)"/><stop offset="100%" stop-color="var(--pos)"/></linearGradient></defs>
+        <line x1="22" y1="32" x2="800" y2="32" stroke="url(#tg)" stroke-width="2.5"/>
+        <circle cx="22" cy="32" r="5.5" fill="#8a8a8a" class="tip" data-tip="2014：国务院《关于创新重点领域投融资机制鼓励社会投资的指导意见》，商业航天政策开放元年，社会资本可进入卫星应用领域。来源：国发〔2014〕60号"/>
+        <circle cx="115" cy="32" r="5.5" fill="#8a8a8a" class="tip" data-tip="2016：国家发改委《民用空间基础设施中长期发展规划（2015-2025年）》，首次明确支持民营企业进入商业航天，确立"政府引导、市场主导"原则"/>
+        <circle cx="210" cy="32" r="5.5" fill="#8a8a8a" class="tip" data-tip="2018：民营火箭创业元年，蓝箭、星河动力、星际荣耀密集成立；首轮融资热潮，A轮估值普遍1-5亿元，当时资本极度乐观"/>
+        <circle cx="300" cy="32" r="5.5" fill="#8a8a8a" class="tip" data-tip="2019.7：星际荣耀双曲线一号首飞成功，中国商业航天历史性节点（来源：新华社2019.7.26）；2020年：疫情+融资寒冬，部分早期玩家出局"/>
+        <circle cx="395" cy="32" r="6" fill="var(--gold)" class="tip" data-tip="2023：蓝箭朱雀二号全球首款液氧甲烷入轨成功；中科宇航力箭一号创26星记录；商业化开始验证，二级市场估值快速攀升"/>
+        <circle cx="510" cy="32" r="7.5" fill="var(--gold)" class="tip" data-tip="2024：商业航天首次写入国务院政府工作报告（新华社2024.3.5），低空经济并列提出；海南文昌商业发射场一期投入使用；GW星座首批发射"/>
+        <circle cx="640" cy="32" r="8.5" fill="var(--pos)" class="tip" data-tip="2025（关键年）：朱雀三号首飞入轨；国家航天局商业航天司成立（11月）；科创板第五套标准商业航天明确适用（6月）；1000亿国家引导基金落地（12月）"/>
+        <circle cx="730" cy="32" r="7.5" fill="var(--gold)" stroke="white" stroke-width="2.5" class="tip" data-tip="2026（NOW）：蓝箭问询（1月），中科宇航辅导验收完成（1月），政府工作报告航空航天'新兴支柱产业'定位再升级，IPO元年正式开启"/>
+        <circle cx="800" cy="32" r="6" fill="var(--pos)" stroke="white" stroke-width="2" class="tip" data-tip="2030E：GW+千帆基础星座成型（3,000-5,000颗），商业发射年均100次，卫星互联网初步商业化，产业规模预计超5万亿元"/>
+        <text x="22" y="50" text-anchor="middle" font-size="10" fill="#8a8a8a" font-weight="600" font-family="Outfit">2014</text>
+        <text x="22" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">开放元年</text>
+        <text x="115" y="50" text-anchor="middle" font-size="10" fill="#8a8a8a" font-family="Outfit">2016</text>
+        <text x="115" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">民企准入</text>
+        <text x="210" y="50" text-anchor="middle" font-size="10" fill="#8a8a8a" font-family="Outfit">2018</text>
+        <text x="210" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">创业元年</text>
+        <text x="300" y="50" text-anchor="middle" font-size="10" fill="#8a8a8a" font-family="Outfit">2019-20</text>
+        <text x="300" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">首次入轨</text>
+        <text x="395" y="50" text-anchor="middle" font-size="10" fill="var(--gold)" font-family="Outfit">2023</text>
+        <text x="395" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">技术突破</text>
+        <text x="510" y="50" text-anchor="middle" font-size="10.5" fill="var(--gold)" font-weight="600" font-family="Outfit">2024</text>
+        <text x="510" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">国家战略</text>
+        <text x="640" y="50" text-anchor="middle" font-size="11" fill="var(--pos)" font-weight="700" font-family="Outfit">2025</text>
+        <text x="640" y="62" text-anchor="middle" font-size="9.5" fill="var(--pos)" font-family="Outfit">全面爆发</text>
+        <text x="730" y="50" text-anchor="middle" font-size="11" fill="var(--gold)" font-weight="700" font-family="Outfit">2026▼</text>
+        <text x="730" y="62" text-anchor="middle" font-size="9.5" fill="var(--gold)" font-family="Outfit">IPO元年</text>
+        <text x="800" y="50" text-anchor="middle" font-size="10" fill="var(--pos)" font-family="Outfit">2030E</text>
+        <text x="800" y="62" text-anchor="middle" font-size="9" fill="var(--n40)" font-family="Outfit">星座成型</text>
+        <line x1="730" y1="5" x2="730" y2="32" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4,3" opacity=".7"/>
+        <text x="735" y="14" font-size="10" fill="var(--gold)" font-weight="700" font-family="Outfit">NOW</text>
+      </svg>
+    </div>
+    <div style="flex:1;overflow:hidden">
+      <table class="dt" style="font-size:11px">
+        <thead><tr><th style="width:90px">时间</th><th style="width:180px">政策 / 事件</th><th>核心内容</th><th style="width:100px">数据来源</th><th style="width:100px">行业影响</th></tr></thead>
+        <tbody>
+          <tr><td>2014年11月</td><td>国务院60号文</td><td>鼓励社会资本进入卫星应用及商业航天，打破央企垄断，明确政府引导、市场主导原则</td><td><span class="src" data-tip="国务院2014年第60号文，2014年11月26日发布">国发〔2014〕60号</span></td><td><span class="pill pc">行业开放元年</span></td></tr>
+          <tr><td>2024年3月</td><td>政府工作报告</td><td>商业航天首次写入，与低空经济并列"新兴产业"，建立国家级产业定位</td><td><span class="src" data-tip="新华社2024.3.5全文，政府工作报告原文">新华社 2024.3</span></td><td><span class="pill pa">国家战略确立</span></td></tr>
+          <tr><td>2025年6月</td><td>科创板第五套扩展</td><td>商业航天列为适用行业；<strong>可重复使用火箭入轨为核心准入条件</strong>；允许未盈利上市</td><td><span class="src" data-tip="上交所《科创板股票上市规则（2025年修订）》，2025年6月5日施行">上交所 2025.6</span></td><td><span class="pill pb">IPO窗口开启</span></td></tr>
+          <tr><td>2025年11月</td><td>商业航天司成立</td><td>国家航天局设立商业航天司，专职监管商业航天；频轨资源申请权向民企开放</td><td><span class="src" data-tip="国家航天局官网公告，2025年11月">国家航天局</span></td><td><span class="pill pc">制度壁垒扫清</span></td></tr>
+          <tr><td>2025年12月</td><td>千亿引导基金落地</td><td>国家创业投资引导基金1000亿元，商业航天为重点投向，带动社会资本预计5000亿+</td><td><span class="src" data-tip="国家发改委2025年12月公告">发改委 2025.12</span></td><td><span class="pill pa">资金国家级保障</span></td></tr>
+          <tr><td>2026年3月</td><td>政府工作报告升级</td><td>航空航天由"新兴产业"升级为<strong>"新兴支柱产业"</strong>，政策级别再提升</td><td><span class="src" data-tip="新华社2026.3政府工作报告全文">新华社 2026.3</span></td><td><span class="pill pb">★ 最高级别定位</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="pft"><span>悬停时间线节点查看原文来源 · 政策动态持续更新</span><span>14 / 15</span></div>
+</section>
+
+<!-- ══ S15 OUTLOOK ══ -->
+<section class="sl dk2" id="s15">
+  <div class="slhd"><div class="ey">15 · 未来10年展望</div><div class="sh">竞争格局、商业模式与技术路径 <i>可能性分析</i></div><div class="pgn">15 / 15</div></div>
+  <div class="divl"></div>
+  <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:8px">
+    <!-- 三列主内容 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;flex:1;min-height:0">
+      <!-- 竞争格局 -->
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600">竞争格局演变</div>
+        <div style="flex:1;border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:8px">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--gold2);margin-bottom:4px">2026–2027：验证期 &amp; 洗牌</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.65">可复用技术验证成败决定企业命运。预计2027年前，仅2-3家完成商业级可复用液体火箭验证。无法完成的企业将面临融资断裂或被并购。<span class="src" style="margin-top:4px" data-tip="参考SpaceX历史：成立2002年，失败4次，2008年首成功，2020年首次盈利；中国企业受益于后发优势+政府支持，洗牌速度可能更快">历史参考</span></div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--gold2);margin-bottom:4px">2028–2030：IPO浪潮 &amp; 两极分化</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.65">头部2家（预计蓝箭+天兵中的1家）科创板上市，市值锚点确立。其余企业要么被头部并购，要么转向垂直细分（如固体快响应、海射等）生存。</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--gold2);margin-bottom:4px">2030–2032：寡头格局成型</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.55);line-height:1.65">类比SpaceX在美国市场格局，头部2家占据中国商业发射80%+份额；国家队（中科宇航）保留政府采购15-20%份额；头部企业开始扭亏为盈，盈利能力向SpaceX靠拢。</div>
+          </div>
+        </div>
+      </div>
+      <!-- 商业模式 -->
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600">商业模式进化路径</div>
+        <div style="flex:1;border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:6px">
+          <div style="background:rgba(255,255,255,.06);border-radius:3px;padding:9px 11px">
+            <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px">Phase 1 · 发射服务商（当前–2027）</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">纯粹按次收费。单次发射1-3亿元（国内市场）。盈利路径取决于复用降本速度和发射频次。政府星座订单（GW/千帆）提供稳定现金流，是生存保障。</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border-radius:3px;padding:9px 11px">
+            <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px">Phase 2 · 星座承包商（2027–2030）</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">与GW/千帆签订长期框架合同（类比SpaceX与Starlink自发射）。可预测现金流，融资成本大幅下降。单次发射价格下降但总收入和毛利率均显著提升。</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border-radius:3px;padding:9px 11px">
+            <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px">Phase 3 · 空间基础设施（2030+）</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">头部企业整合发射+卫星运营+太空算力+遥感数据服务，形成SpaceX式垂直整合；或通过分拆卫星运营业务实现二次IPO。"太空云计算"成为新增长引擎。</div>
+          </div>
+        </div>
+      </div>
+      <!-- 技术路径 + 潜在赢家 -->
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600">关键里程碑预测</div>
+        <div style="border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-size:10px;color:rgba(255,255,255,.3);min-width:38px;flex-shrink:0">2026</span><span style="font-size:11px;color:rgba(255,255,255,.7)">中国首次完整商业可复用液体火箭（蓝箭最有可能）；第一家递交科创板招股书</span></div>
+          <div style="display:flex;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-size:10px;color:rgba(255,255,255,.3);min-width:38px;flex-shrink:0">2027</span><span style="font-size:11px;color:rgba(255,255,255,.7)">年发射频率突破50次/年；头部企业复用成本降至$5,000/kg以内；首家科创板上市</span></div>
+          <div style="display:flex;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-size:10px;color:rgba(255,255,255,.3);min-width:38px;flex-shrink:0">2028</span><span style="font-size:11px;color:rgba(255,255,255,.7)">2-3家完成IPO；GW星座发射超1000颗；卫星互联网beta商业化</span></div>
+          <div style="display:flex;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-size:10px;color:rgba(255,255,255,.3);min-width:38px;flex-shrink:0">2029</span><span style="font-size:11px;color:rgba(255,255,255,.7)">复用30次成熟；头部企业<strong style="color:var(--gold2)">首次扭亏为盈</strong>；国内发射市场年规模超500亿元</span></div>
+          <div style="display:flex;gap:10px;padding:5px 0"><span style="font-size:10px;color:rgba(255,255,255,.3);min-width:38px;flex-shrink:0">2032</span><span style="font-size:11px;color:rgba(255,255,255,.7)">重型可复用火箭（20吨+）成熟；GW+千帆核心星座组网完成；卫星互联网正式商业化</span></div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.09);border-radius:4px;padding:10px 12px;flex:1">
+          <div style="font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:7px;font-weight:600">潜在赢家与主要风险</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;gap:8px"><span style="font-size:14px;flex-shrink:0">🚀</span><div><div style="font-size:11px;color:#fff;font-weight:600">可复用液体大运力（蓝箭/天兵）</div><div style="font-size:10.5px;color:rgba(255,255,255,.45)">技术+资本双领先，最可能成为"中国SpaceX"</div></div></div>
+            <div style="display:flex;gap:8px"><span style="font-size:14px;flex-shrink:0">📡</span><div><div style="font-size:11px;color:#fff;font-weight:600">相控阵天线龙头（铖昌等）</div><div style="font-size:10.5px;color:rgba(255,255,255,.45)">已上市，GaN壁垒极高，2030年市场514亿</div></div></div>
+          </div>
+          <div style="margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:7px">
+            <div style="font-size:10px;color:rgba(139,21,21,.8);font-weight:600;margin-bottom:4px">主要风险</div>
+            <div style="display:flex;flex-direction:column;gap:2px;font-size:10.5px;color:rgba(255,255,255,.4)">
+              <div>① 技术失败：可回收验证失败率高，代价惨重</div>
+              <div>② 盈利遥远：全行业普遍亏损5-10年，资金压力大</div>
+              <div>③ 政策依赖：GW/千帆订单推迟将令市场严重承压</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pft"><span>未来展望基于公开信息和行业逻辑推演，不构成投资建议 · Commercial Space Investment Dashboard 2026</span><span>15 / 15</span></div>
+</section>
+
+</div><!-- #mn -->
+
+<script>
+function G(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:"smooth",block:"start"})}
+// Active nav highlight
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      var id=e.target.id;
+      document.querySelectorAll(".sna").forEach(function(b){
+        b.classList.toggle("on",b.getAttribute("onclick")==="G('"+id+"')")
+      });
+    }
+  });
+},{threshold:0.35,rootMargin:"-5% 0px -55% 0px"});
+document.querySelectorAll(".sl[id]").forEach(function(s){io.observe(s)});
+// Tooltip
+var tt=document.getElementById("tt");
+document.querySelectorAll("[data-tip]").forEach(function(el){
+  el.addEventListener("mouseenter",function(e){
+    tt.textContent=el.dataset.tip;tt.style.opacity="1";mv(e);
+  });
+  el.addEventListener("mousemove",mv);
+  el.addEventListener("mouseleave",function(){tt.style.opacity="0"});
+  el.style.cursor="help";
+});
+function mv(e){
+  var x=e.clientX,y=e.clientY,tw=tt.offsetWidth,th=tt.offsetHeight;
+  tt.style.left=Math.min(x-tw/2,window.innerWidth-tw-8)+"px";
+  tt.style.top=Math.max(8,y-th-12)+"px";
+}
+// Fade in cards with stagger
+var ra=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      var els=Array.from(e.target.querySelectorAll(".ibox,.sbox,.tcard,.cocard,.kbox"));
+      els.forEach(function(el,i){
+        setTimeout(function(){el.style.opacity="1";el.style.transform="translateY(0)"},i*40);
+      });
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll(".sl").forEach(function(sl){
+  sl.querySelectorAll(".ibox,.sbox,.tcard,.cocard,.kbox").forEach(function(el){
+    el.style.opacity="0";el.style.transform="translateY(8px)";
+    el.style.transition="opacity .35s ease,transform .35s ease";
+  });
+  ra.observe(sl);
+});
+</script>
+</body>
+</html>
